@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wmr">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="JavaScript 介绍JavaScript 书写位置内部形式直接写在 html 文件里，用 script 标签包住 拓展：alert（’你好，js’）页面弹出警告对话框 注意：我们将放在 HTML 文件底部附近的原因是浏览器会按照代码在文件中的顺序加载 HTML。 如果先加载 JavaScript 期望修改其下方的 HTML， 那么他可能由于 HTML 尚未被加载而生效。x 因此，将 Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day01">
+<meta property="og:url" content="https://hansomewang666.github.io/2022/05/05/JS%E5%9F%BA%E7%A1%80/day01/index.html">
+<meta property="og:site_name" content="Wmr&#39;s Blog">
+<meta property="og:description" content="JavaScript 介绍JavaScript 书写位置内部形式直接写在 html 文件里，用 script 标签包住 拓展：alert（’你好，js’）页面弹出警告对话框 注意：我们将放在 HTML 文件底部附近的原因是浏览器会按照代码在文件中的顺序加载 HTML。 如果先加载 JavaScript 期望修改其下方的 HTML， 那么他可能由于 HTML 尚未被加载而生效。x 因此，将 Java">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image002.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image004.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image006.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image008.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image010.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image012.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image014.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image016.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image018.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image020.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image022.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image024.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image026.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image028.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image030.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image032.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image034.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image036.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image038.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image040.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image042.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image044.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image046.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image048.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image050.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image052.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image054.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image056.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image058.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image060.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image062.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image064.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image066.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image068.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image070.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image072.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image074.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image076.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image078.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image080.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image082.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image084.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image086.gif">
+<meta property="article:published_time" content="2022-05-05T02:43:13.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:32:28.886Z">
+<meta property="article:author" content="Wmr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image002.gif">
+  
+  
+  <title>Day01 - Wmr&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wmr&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nidemingzi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Day01"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-05 10:43" pubdate>
+          2022年5月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day01</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="JavaScript-介绍"><a href="#JavaScript-介绍" class="headerlink" title="JavaScript 介绍"></a>JavaScript 介绍</h1><h2 id="JavaScript-书写位置"><a href="#JavaScript-书写位置" class="headerlink" title="JavaScript 书写位置"></a>JavaScript 书写位置</h2><h2 id="内部形式"><a href="#内部形式" class="headerlink" title="内部形式"></a>内部形式</h2><p>直接写在 html 文件里，用 script 标签包住</p>
+<p><strong>拓展</strong>：alert（’你好，js’）页面弹出警告对话框</p>
+<p><strong>注意：我们将<script>放在 HTML 文件底部附近的原因是浏览器会按照代码在文件中的顺序加载 HTML。</strong></p>
+<p><strong>如果先加载 JavaScript 期望修改其下方的 HTML， 那么他可能由于 HTML 尚未被加载而生效。x</strong></p>
+<p><strong>因此，将 JavaScript 代码放在 HTML 页面的底部附近通常是最好的策略。</strong></p>
+<h2 id="外部形式"><a href="#外部形式" class="headerlink" title="外部形式"></a>外部形式</h2><p>一般将 JavaScript 代码写在独立的以 .js 结尾的文件中，然后通过 script 标签的 src 属性引入</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image002.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image004.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="注释和结束符"><a href="#注释和结束符" class="headerlink" title="注释和结束符"></a>注释和结束符</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>使用 // 注释单行代码</p>
+<h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>使用 /* */ 注释多行代码</p>
+<h3 id="结束符"><a href="#结束符" class="headerlink" title="结束符"></a>结束符</h3><p>在 JavaScript 中 ; 代表一段代码的结束，多数情况下可以省略 ; 使用回车（enter）替代。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image006.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a>输入和输出</h3><p>向 alert() 或 document.write() 输入任意数字，他都会以弹窗形式展示（输出）给用户。</p>
+<h4 id="输出语法："><a href="#输出语法：" class="headerlink" title="输出语法："></a>输出语法：</h4><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image008.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 向 body 内输出内容。</p>
+<p>l 如果输出的内容写的是标签，也会被解析成网页元素。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image010.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 页面弹出警告对话框</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image012.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 控制台输入语法，程序员调试使用</p>
+<h4 id="输入语法："><a href="#输入语法：" class="headerlink" title="输入语法："></a>输入语法：</h4><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image014.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 显示一个对话框，对话框中包含一条文字信息，用来提示用户输入文字</p>
+<h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image016.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量是计算机存储数据的“容器”，用户输入的数据就是用变量存储起来的。</p>
+<p>\1. 白话：变量就是一个装东西的盒子。</p>
+<p>\2. 通俗：变量是计算机中用来存储数据的“容器”，它可以让计算机变得有记忆。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image018.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：</strong>变量不是数据本身，它们仅仅是一个用于存储数值的容器。可以理解为是一个个用来装东西的纸箱子。</p>
+<h2 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h2><h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p><strong>语法：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image020.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 声明变量有两部分构成：声明关键字、变量名（标识）</p>
+<p>l let 即关键字 (let: 允许、许可、让、要)，所谓关键字是系统提供的专门用来声明（定义）变量的词语</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image022.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="变量赋值："><a href="#变量赋值：" class="headerlink" title="变量赋值："></a>变量赋值：</h3><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image024.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="更新变量："><a href="#更新变量：" class="headerlink" title="更新变量："></a>更新变量：</h3><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image026.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：</strong> let 不允许多次声明一个变量。</p>
+<h3 id="声明多个变量："><a href="#声明多个变量：" class="headerlink" title="声明多个变量："></a>声明多个变量：</h3><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image028.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="变量命名规则与规范"><a href="#变量命名规则与规范" class="headerlink" title="变量命名规则与规范"></a>变量命名规则与规范</h2><p><strong>规则：</strong>必须遵守，不遵守会报错</p>
+<p><strong>规范：</strong>建议，不遵守不会报错，但不符合业内通识</p>
+<p>l <strong>规则：</strong></p>
+<p>n 不能用关键字：有特殊含义的字符，JavaScript 内置的一些英文词汇。例如：let, var, if, for 等</p>
+<p>n 只能用下划线，字母，数字，$组成，且不能以数字开头</p>
+<p>n 字母严格区分大小写，如 Age 和 age 是不同变量</p>
+<p>l <strong>规范：</strong></p>
+<p>n 起名要有意义</p>
+<p>n 遵守小驼峰命名法</p>
+<p>n 第一个单词首字母小写，后面每个单词首字母大写。例：userName</p>
+<h2 id="变量拓展-let-和-var-的区别"><a href="#变量拓展-let-和-var-的区别" class="headerlink" title="变量拓展-let 和 var 的区别"></a>变量拓展-let 和 var 的区别</h2><p><strong>var 声明：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image030.gif" srcset="/img/loading.gif" lazyload></p>
+<p>结论：以后声明变量我们统一使用 let</p>
+<h2 id="变量拓展-数组"><a href="#变量拓展-数组" class="headerlink" title="变量拓展-数组"></a>变量拓展-数组</h2><p>数组(Array)是一种可以按顺序保存多个数据</p>
+<p><strong>声明语法：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image032.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 数组是按顺序保存，所以每个数据都有自己的编号</p>
+<p>l 计算机中的编号从 0 开始，所以小明的编号为 0，小刚编号为 1，以此类推</p>
+<p>l 在数组中，数据的编号也叫索引或下标</p>
+<p>l 数组可以存储任意类型的数据</p>
+<p><strong>取值语法：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image034.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 通过下标取数据</p>
+<p>l 取出来是什么类型的，就根据这种类型特点来访问</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><strong>JS 数据类型整体分为两大类：</strong></p>
+<p>l 基本数据类型</p>
+<p>l 引用数据类型</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image036.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image038.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据类型-–-数字类型（number）"><a href="#数据类型-–-数字类型（number）" class="headerlink" title="数据类型 – 数字类型（number）"></a>数据类型 – 数字类型（number）</h2><p>即我们数学中学习到的数字，可以是整数、小数、正数、负数。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image040.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意事项：</strong>JS 是弱数据类型，变量到底属于那种类型，只有赋值之后，我们才能确认 Java 是强数据类型 例如 int a = 3 必须是整数</p>
+<h3 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h3><p>用来判断一个变量是否为非数字的类型，返回 true 或者 false</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image042.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据类型-–-字符串类型（string）"><a href="#数据类型-–-字符串类型（string）" class="headerlink" title="数据类型 – 字符串类型（string）"></a>数据类型 – 字符串类型（string）</h2><p>通过单引号（ ''） 、双引号（ ""）或反引号( ` )包裹的数据都叫字符串，单引号和双引号没有本质上的区别，推荐使用单引号。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image044.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意事项：</strong></p>
+<p>l 无论单引号或是双引号必须成对使用</p>
+<p>l 单引号/双引号可以互相嵌套，但是不以自已嵌套自已（口诀：外双内单，或者外单内双）</p>
+<p>l 字符串里面的引号也算一个字符</p>
+<p>l 必要时可以使用转义符 \，输出单引号或双引号</p>
+<p>l prompt()里就算输入数字字面量 18 其表现的数据类型仍然为字符串类型</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image046.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>字符串拼接：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image048.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p><strong>作用：</strong></p>
+<p>l 拼接字符串和变量</p>
+<p>l 在没有它之前，要拼接变量比较麻烦</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image050.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image052.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>符号：</strong></p>
+<p>l ``</p>
+<p>l 在英文输入模式下按键盘的 tab 键上方那个键（1 左边那个键）</p>
+<p>l 内容拼接变量时，用 ${} 包住变量</p>
+<p>l ${} 里面能进行运算</p>
+<p>l 不仅仅能用在 document 上，也能用在 alert 等其他语句上。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image054.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 反引号里面能直接换行，不用插入<br />标签。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image056.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 反引号里面能放 html 标签，能修改样式。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image058.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 并且标签的首和尾能分别用 document 打印</p>
+<p>n 例：将<div></div>标签以及里面的内容进行分别打印，</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image060.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据类型-–-布尔类型（boolean）"><a href="#数据类型-–-布尔类型（boolean）" class="headerlink" title="数据类型 – 布尔类型（boolean）"></a>数据类型 – 布尔类型（boolean）</h2><p>表示肯定或否定时在计算机中对应的是布尔类型数据。</p>
+<p>它有两个固定的值 true 和 false，表示肯定的数据用 true（真），表示否定的数据用 false（假）。</p>
+<p>布尔值+数字型会隐式转换为数字型，布尔值+字符串会隐式转换为字符串</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image062.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据类型-–-未定义类型（undefined）"><a href="#数据类型-–-未定义类型（undefined）" class="headerlink" title="数据类型 – 未定义类型（undefined）"></a>数据类型 – 未定义类型（undefined）</h2><p>未定义是比较特殊的类型，只有一个值 undefined。</p>
+<p>只声明变量，不赋值的情况下，变量的默认值为 undefined，一般很少【直接】为某个变量赋值为 undefined。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image064.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>工作中的使用场景：</strong>我们开发中经常声明一个变量，等待传送过来的数据。如果我们不知道这个数据是否传递过来，此时我们可以通过检测这个变量是不是 undefined，就判断用户是否有数据传递过来。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image066.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据类型-–-null（空类型）"><a href="#数据类型-–-null（空类型）" class="headerlink" title="数据类型 – null（空类型）"></a>数据类型 – null（空类型）</h2><p>null 表示 值为 空</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image068.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>null 和 undefined 区别：</strong></p>
+<p>l undefined 表示没有赋值</p>
+<p>l null 表示赋值了，但是内容为空</p>
+<p><strong>null 开发中的使用场景：</strong></p>
+<p>官方解释：把 null 作为尚未创建的对象</p>
+<p>大白话： 将来有个变量里面存放的是一个对象，但是对象还没创建好，可以先给个 null</p>
+<h2 id="其他数据类型-symbol-bigint"><a href="#其他数据类型-symbol-bigint" class="headerlink" title="其他数据类型 symbol,bigint"></a>其他数据类型 symbol,bigint</h2><h2 id="控制台输出语句和检测数据类型"><a href="#控制台输出语句和检测数据类型" class="headerlink" title="控制台输出语句和检测数据类型"></a>控制台输出语句和检测数据类型</h2><h3 id="通过-typeof-关键字检测数据类型"><a href="#通过-typeof-关键字检测数据类型" class="headerlink" title="通过 typeof 关键字检测数据类型"></a>通过 typeof 关键字检测数据类型</h3><p>通过 typeof 关键字检测数据类型，并且输出数据类型的名称</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image070.gif" srcset="/img/loading.gif" lazyload></p>
+<p>typeof null // object</p>
+<p><strong>2. instanceof 检测引用类型</strong></p>
+<p><strong>3. Object.prototype.toString.call() 既可以检测基本类型，也可以检测引用类型</strong></p>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><h2 id="为什么需要类型转换"><a href="#为什么需要类型转换" class="headerlink" title="为什么需要类型转换"></a>为什么需要类型转换</h2><p>JavaScript 是弱数据类型： JavaScript 也不知道变量到底属于那种数据类型，只有赋值了才清楚。</p>
+<p><strong>坑：</strong> 使用表单、prompt 获取过来的数据默认是字符串类型的，此时就不能直接简单的进行加法运算。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image072.gif" srcset="/img/loading.gif" lazyload></p>
+<p>此时需要转换变量的数据类型。</p>
+<p>通俗来说，就是把一种数据类型的变量转换成我们需要的数据类型。</p>
+<h2 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h2><p>某些运算符被执行时，系统内部自动将数据类型进行转换，这种转换称为隐式转换。</p>
+<p><strong>规则：</strong></p>
+<p>l + 号两边只要有一个是字符串，都会把另外一个转成字符串</p>
+<p>l 除了+以外的算术运算符 比如 - * / 等都会把数据转成数字类型</p>
+<p>l ++，--也能将数据转换为数字类型</p>
+<p><strong>缺点：</strong></p>
+<p>l 转换类型不明确，靠经验才能总结</p>
+<p><strong>小技巧：</strong></p>
+<p>l +号作为正号解析可以转换成 Number</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image074.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image076.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image078.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h2><p>自己写代码告诉系统该转成什么类型</p>
+<h3 id="转换为数字型"><a href="#转换为数字型" class="headerlink" title="转换为数字型"></a>转换为数字型</h3><p>Number(数据)</p>
+<p>l 转成数字类型</p>
+<p>l 如果字符串内容里有非数字，转换失败时结果为 NaN（Not a Number）即不是一个数字</p>
+<p>l NaN 也是 number 类型的数据，代表非数字</p>
+<p>l Number 能将 false 转换为 0，true 转换为 1</p>
+<p>parseInt(数据)</p>
+<p>l 只带有数字的字符串转换为数字型的同时去除非数字的单位或者符号</p>
+<p>l paseint 第一个参数放数据，第二个参数放几进制</p>
+<p>l 如果数据里有不能直接识别为数字的值则直接返回第一个数字</p>
+<p>parseFloat(数据)</p>
+<p>l 可以保留小数</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image080.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image082.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="转换为字符型"><a href="#转换为字符型" class="headerlink" title="转换为字符型"></a>转换为字符型</h3><p>l String(数据)</p>
+<p>l 变量.toString(进制)</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image084.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="转换为布尔型"><a href="#转换为布尔型" class="headerlink" title="转换为布尔型"></a>转换为布尔型</h3><p>l <strong>false , 数字 0 , ' ' , undefined , null, NaN 代表 false</strong></p>
+<p>l 其余值都会被转换为 true</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day01/clip_image086.gif" srcset="/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS%E5%9F%BA%E7%A1%80/" class="category-chain-item">JS基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Day01</div>
+      <div>https://hansomewang666.github.io/2022/05/05/JS基础/day01/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wmr</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/05/JS%E5%9F%BA%E7%A1%80/day02/" title="Day02">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day02</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/05/JS%E5%9F%BA%E7%A1%80/day03/" title="Day03">
+                        <span class="hidden-mobile">Day03</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

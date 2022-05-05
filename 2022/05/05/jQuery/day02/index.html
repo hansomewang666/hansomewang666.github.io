@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wmr">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="jQuery 事件注册单个事件注册语法：   其他事件和原生基本一致。 比如 mouseover、mouseout、blur、focus、change、keydown、keyup、resize、scroll 等 jQuery 事件处理（委托）on() 方法在匹配元素上绑定一个或多个事件的事件处理函数 语法：  \1. events:一个或多个用空格分隔的事件类型，如”click”或”keydown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day02">
+<meta property="og:url" content="https://hansomewang666.github.io/2022/05/05/jQuery/day02/index.html">
+<meta property="og:site_name" content="Wmr&#39;s Blog">
+<meta property="og:description" content="jQuery 事件注册单个事件注册语法：   其他事件和原生基本一致。 比如 mouseover、mouseout、blur、focus、change、keydown、keyup、resize、scroll 等 jQuery 事件处理（委托）on() 方法在匹配元素上绑定一个或多个事件的事件处理函数 语法：  \1. events:一个或多个用空格分隔的事件类型，如”click”或”keydown">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image002.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image004.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image006.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image008.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image010.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image012.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image014.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image016.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image018.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image020.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image022.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image024.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image026.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image028.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image030.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image032.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image034.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image036.gif">
+<meta property="article:published_time" content="2022-05-05T02:43:13.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:20:15.251Z">
+<meta property="article:author" content="Wmr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hansomewang666.github.io/img/jQuery/day02/clip_image002.gif">
+  
+  
+  <title>Day02 - Wmr&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wmr&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nidemingzi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Day02"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-05 10:43" pubdate>
+          2022年5月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day02</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="jQuery-事件注册"><a href="#jQuery-事件注册" class="headerlink" title="jQuery 事件注册"></a>jQuery 事件注册</h1><h2 id="单个事件注册"><a href="#单个事件注册" class="headerlink" title="单个事件注册"></a>单个事件注册</h2><p><strong>语法：</strong></p>
+<p><img src="/img/jQuery/day02/clip_image002.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day02/clip_image004.gif" srcset="/img/loading.gif" lazyload></p>
+<p>其他事件和原生基本一致。</p>
+<p>比如 mouseover、mouseout、blur、focus、change、keydown、keyup、resize、scroll 等</p>
+<h1 id="jQuery-事件处理（委托）"><a href="#jQuery-事件处理（委托）" class="headerlink" title="jQuery 事件处理（委托）"></a>jQuery 事件处理（委托）</h1><p>on() 方法在匹配元素上绑定一个或多个事件的事件处理函数</p>
+<p><strong>语法：</strong></p>
+<p><img src="/img/jQuery/day02/clip_image006.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\1. events:一个或多个用空格分隔的事件类型，如”click”或”keydown”。</p>
+<p>\2. selector: 元素的子元素选择器 。</p>
+<p>\3. fn:回调函数 即绑定在元素身上的侦听函数。</p>
+<p><strong>on()</strong> <strong>方法优势 1：</strong></p>
+<p>可以绑定多个事件，多个处理事件处理程序。</p>
+<p><img src="/img/jQuery/day02/clip_image008.gif" srcset="/img/loading.gif" lazyload></p>
+<p>如果事件处理程序相同 ：</p>
+<p><img src="/img/jQuery/day02/clip_image010.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>on()</strong> <strong>方法优势 2：</strong></p>
+<p>可以事件委派操作。事件委派的定义就是，把原来加给子元素身上的事件绑定在父元素身上，就是把事件委托给父元素。事件委托里面的 this 指向的是子元素 li</p>
+<p><img src="/img/jQuery/day02/clip_image012.gif" srcset="/img/loading.gif" lazyload></p>
+<p>在此之前有 bind(), live()delegate()等方法来处理事件绑定或者事件委派，最新版本的请用 on 替代他们。</p>
+<p><strong>on()</strong> <strong>方法优势 3：</strong></p>
+<p>动态创建的元素，click() 没有办法绑定事件， on() 可以给动态生成的元素绑定事件 (给未来动态创建的元素绑定事件)</p>
+<p>原理：本质利用了事件冒泡的原理，其实点击的是父元素。</p>
+<p><img src="/img/jQuery/day02/clip_image014.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day02/clip_image016.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="事件处理-off-解绑事件"><a href="#事件处理-off-解绑事件" class="headerlink" title="事件处理 off() 解绑事件"></a>事件处理 off() 解绑事件</h2><p>off() 方法可以移除通过 on() 方法添加的事件处理程序。</p>
+<p><img src="/img/jQuery/day02/clip_image018.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>额外：</strong></p>
+<p>\1. 如果有的事件只想触发一次， 可以使用 one()来绑定事件,触发一次后自动解除绑定事件。</p>
+<p><img src="/img/jQuery/day02/clip_image020.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\2. 同一个元素同一个事件，多个处理函数，解除某个处理程序（函数）</p>
+<p>n 可以在’click’后面添加指定事件的函数名.</p>
+<p><img src="/img/jQuery/day02/clip_image022.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="自动触发事件-trigger"><a href="#自动触发事件-trigger" class="headerlink" title="自动触发事件 trigger()"></a>自动触发事件 trigger()</h2><p>有些事件希望自动触发, 比如轮播图自动播放功能跟点击右侧按钮一致。可以利用定时器自动触发右侧按钮点击事件，不必鼠标点击触发。</p>
+<p><img src="/img/jQuery/day02/clip_image024.gif" srcset="/img/loading.gif" lazyload></p>
+<p>刷新页面即可触发一次</p>
+<p><img src="/img/jQuery/day02/clip_image026.gif" srcset="/img/loading.gif" lazyload></p>
+<p>会触发默认行为(例如：input 获取焦点事件)</p>
+<p>trigger 模拟触发点击事件，他是模拟的事件对象 e，和事件冒泡，本质并不是一个点击事件。不能触发 a 标签点击跳转。</p>
+<p>n 解决方法 1：$(‘a’)[0].click() 将 jquery 对象 a 转换为 dom 对象，后调用 dom 的点击事件</p>
+<p>n 解决方法 2: $(‘span’).click() &#x2F; $(‘span’).trigger(‘click’) 利用事件冒泡，给 a 标签的子元素模拟触发事件.</p>
+<p><img src="/img/jQuery/day02/clip_image028.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day02/clip_image030.gif" srcset="/img/loading.gif" lazyload></p>
+<p>不会触发默认行为</p>
+<p><strong>和前面两种的区别：</strong>triggerHandler 模式不会触发元素的默认行为(例如：自动触发时表单元素的默认行为是聚焦时光标闪烁。)，并且完成触发后，也无法点击 input 框重新聚焦</p>
+<p><img src="/img/jQuery/day02/clip_image032.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="jQuery-事件对象"><a href="#jQuery-事件对象" class="headerlink" title="jQuery 事件对象"></a>jQuery 事件对象</h1><p>事件被触发，就会有事件对象的产生</p>
+<p><img src="/img/jQuery/day02/clip_image034.gif" srcset="/img/loading.gif" lazyload></p>
+<p>阻止默认行为：event.preventDefault() 或者 return false</p>
+<p>阻止冒泡： event.stopPropagation()</p>
+<h1 id="jQuery-拷贝对象"><a href="#jQuery-拷贝对象" class="headerlink" title="jQuery 拷贝对象"></a>jQuery 拷贝对象</h1><p>如果想要把某个对象拷贝（合并） 给另外一个对象使用，此时可以使用 $.extend()方法</p>
+<p><strong>语法：</strong></p>
+<p><img src="/img/jQuery/day02/clip_image036.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\1. deep: 如果设为 true 为深拷贝， 默认为 false 浅拷贝</p>
+<p>\2. target: 要拷贝的目标对象</p>
+<p>\3. object1:待拷贝到第一个对象的对象。</p>
+<p>\4. objectN:待拷贝到第 N 个对象的对象。</p>
+<p>\5. 浅拷贝是把被拷贝的对象复杂数据类型中的地址拷贝给目标对象，修改目标对象会影响被拷贝对象。6. 深拷贝，前面加 true， 完全克隆(拷贝的对象,而不是地址)，修改目标对象不会影响被拷贝对象。</p>
+<p>深拷贝：拷贝属性，新创一个地址，递归拷贝对象所有属性（对象里面的对象或者数组也会被拷贝），修改属性不会影响原对象</p>
+<p>浅拷贝：拷贝地址，修改属性会影响被拷贝对象。</p>
+<h1 id="jQuery-多库共存"><a href="#jQuery-多库共存" class="headerlink" title="jQuery 多库共存"></a>jQuery 多库共存</h1><p><strong>问题概述：</strong></p>
+<p>jQuery 使用$作为标示符，随着jQuery的流行,其他 js 库也会用这$作为标识符，这样一起使用会引起冲突。</p>
+<p><strong>客观需求：</strong></p>
+<p>需要一个解决方案，让 jQuery 和其他的 js 库不存在冲突，可以同时存在，这就叫做多库共存。</p>
+<p><strong>jQuery</strong> <strong>解决方案：</strong></p>
+<p>\1. 把里面的 $ 符号 统一改为 jQuery。 比如 jQuery(‘’div’’)</p>
+<p>\2. jQuery 变量规定新的名称：</p>
+<p>a) 替换$符号：$.noConflict()</p>
+<p>b) 重新设置$符号： var xx &#x3D; $.noConflict();</p>
+<p>c) 使用新符号： xx( ‘ div ‘ )</p>
+<h1 id="jQuery-插件"><a href="#jQuery-插件" class="headerlink" title="jQuery 插件"></a>jQuery 插件</h1><p>jQuery 功能比较有限，想要更复杂的特效效果，可以借助于 jQuery 插件完成。</p>
+<p>注意: 这些插件也是依赖于 jQuery 来完成的，所以必须要先引入 jQuery 文件，因此也称为 jQuery 插件。</p>
+<p><strong>jQuery</strong> <strong>插件常用的网站：</strong></p>
+<p>\1. jQuery 插件库 <a target="_blank" rel="noopener" href="http://www.jq22.com/">http://www.jq22.com/</a></p>
+<p>\2. jQuery 之家 <a target="_blank" rel="noopener" href="http://www.htmleaf.com/">http://www.htmleaf.com/</a></p>
+<p><strong>jQuery</strong> <strong>插件使用步骤：</strong></p>
+<p>\1. 引入相关文件。（jQuery 文件 和插件文件） 2. 复制相关 html、css、js (调用插件)。</p>
+<p><strong>jQuery</strong> <strong>插件演示：</strong></p>
+<p>\1. 瀑布流</p>
+<p>\2. 图片懒加载（图片使用延迟加载在可提高网页下载速度。它也能帮助减轻服务器负载）</p>
+<p>当我们页面滑动到可视区域，再显示图片。</p>
+<p>我们使用 jquery 插件库 EasyLazyload。注意，此时的 js 引入文件和 js 调用必须写到 DOM 元素（图片）最后面</p>
+<p>\3. 全屏滚动（fullpage.js）</p>
+<p>​ gitHub： <a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js">https://github.com/alvarotrigo/fullPage.js</a></p>
+<p>​ 中文翻译网站： <a target="_blank" rel="noopener" href="http://www.dowebok.com/demo/2014/77/">http://www.dowebok.com/demo/2014/77/</a></p>
+<p><strong>bootstrap JS</strong> <strong>插件：</strong></p>
+<p>bootstrap 框架也是依赖于 jQuery 开发的，因此里面的 js 插件使用 ，也必须引入 jQuery 文件。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/jQuery/" class="category-chain-item">jQuery</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Day02</div>
+      <div>https://hansomewang666.github.io/2022/05/05/jQuery/day02/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wmr</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/05/jQuery/day01/" title="Day01">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day01</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/05/JS%E5%9F%BA%E7%A1%80/day02/" title="Day02">
+                        <span class="hidden-mobile">Day02</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

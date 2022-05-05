@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wmr">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="函数为什么需要函数function，是被设计为执行特定任务的代码块 说明： 函数可以把具有相同或相似逻辑的代码“包裹”起来，通过函数调用执行这些被“包裹”的代码逻辑，这么做的优势 是有利于实现代码复用，提高开发效率。 函数使用两个相同的函数后面的会覆盖前面的函数 函数的声明语法： 函数名命名规范n 和变量命名基本一致 n 尽量小驼峰式命名法 n 前缀应该为动词 n 命名建议：常用动词约定   函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day04">
+<meta property="og:url" content="https://hansomewang666.github.io/2022/05/05/JS%E5%9F%BA%E7%A1%80/day04/index.html">
+<meta property="og:site_name" content="Wmr&#39;s Blog">
+<meta property="og:description" content="函数为什么需要函数function，是被设计为执行特定任务的代码块 说明： 函数可以把具有相同或相似逻辑的代码“包裹”起来，通过函数调用执行这些被“包裹”的代码逻辑，这么做的优势 是有利于实现代码复用，提高开发效率。 函数使用两个相同的函数后面的会覆盖前面的函数 函数的声明语法： 函数名命名规范n 和变量命名基本一致 n 尽量小驼峰式命名法 n 前缀应该为动词 n 命名建议：常用动词约定   函数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image002.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image004.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image006.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image008.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image010.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image012.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image014.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image016.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image018.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image020.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image022.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image024.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image026.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image028.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image030.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image032.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image034.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image036.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image038.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image040.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image042.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image044.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image046.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image048.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image050.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image052.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image054.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image056.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image058.gif">
+<meta property="article:published_time" content="2022-05-05T02:43:13.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:33:29.906Z">
+<meta property="article:author" content="Wmr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hansomewang666.github.io/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image002.gif">
+  
+  
+  <title>Day04 - Wmr&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wmr&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nidemingzi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Day04"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-05 10:43" pubdate>
+          2022年5月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day04</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="为什么需要函数"><a href="#为什么需要函数" class="headerlink" title="为什么需要函数"></a>为什么需要函数</h2><p>function，是被设计为执行特定任务的代码块</p>
+<p><strong>说明：</strong></p>
+<p>函数可以把具有相同或相似逻辑的代码“包裹”起来，通过函数调用执行这些被“包裹”的代码逻辑，这么做的优势</p>
+<p>是有利于实现代码复用，提高开发效率。</p>
+<h2 id="函数使用"><a href="#函数使用" class="headerlink" title="函数使用"></a>函数使用</h2><p>两个相同的函数后面的会覆盖前面的函数</p>
+<h4 id="函数的声明语法："><a href="#函数的声明语法：" class="headerlink" title="函数的声明语法："></a>函数的声明语法：</h4><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image002.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="函数名命名规范"><a href="#函数名命名规范" class="headerlink" title="函数名命名规范"></a>函数名命名规范</h4><p>n 和变量命名基本一致</p>
+<p>n 尽量小驼峰式命名法</p>
+<p>n 前缀应该为动词</p>
+<p>n 命名建议：常用动词约定</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image004.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image006.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="函数的调用语法"><a href="#函数的调用语法" class="headerlink" title="函数的调用语法"></a>函数的调用语法</h4><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image008.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：</strong>声明（定义）的函数必须调用才会真正被执行，使用 () 调用函数</p>
+<p>l 我们曾经使用的 alert() , parseInt() 这种名字后面跟小括号的本质都是函数的调用</p>
+<h4 id="函数体"><a href="#函数体" class="headerlink" title="函数体"></a>函数体</h4><p>函数体是函数的构成部分，它负责将相同或相似代码“包裹”起来，直到函数调用时函数体内的代码才</p>
+<p>会被执行。函数的功能代码都要写在函数体当中。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image010.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h2><h4 id="为什么要有参数的函数"><a href="#为什么要有参数的函数" class="headerlink" title="为什么要有参数的函数"></a>为什么要有参数的函数</h4><p>这样的函数只能求 10 + 20， 这个函数功能局限非常大</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image012.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>解决办法：</strong>把要计算的数字传到函数内</p>
+<p>l 若函数完成功能需要调用者传入数据，那么就需要用有参数的函数</p>
+<p>l 这样可以极大提高函数的灵活性</p>
+<h4 id="有参数的函数声明和调用"><a href="#有参数的函数声明和调用" class="headerlink" title="有参数的函数声明和调用"></a>有参数的函数声明和调用</h4><h5 id="声明语法："><a href="#声明语法：" class="headerlink" title="声明语法："></a>声明语法：</h5><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image014.gif" srcset="/img/loading.gif" lazyload></p>
+<p>参数列表</p>
+<p>l 传入数据列表</p>
+<p>l 声明这个函数需要传入几个数据</p>
+<p>l 多个数据用逗号隔开</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image016.gif" srcset="/img/loading.gif" lazyload></p>
+<h5 id="调用语法："><a href="#调用语法：" class="headerlink" title="调用语法："></a>调用语法：</h5><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image018.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image020.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>额外：</strong></p>
+<p><strong>参数列表能填写数组形式，例：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image022.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 形参可直接写出数组名，不用带括号，直接起声明该数组变量的作用。</p>
+<p>l 实参直接写出数组，代表一个实参。</p>
+<h4 id="形参和实参"><a href="#形参和实参" class="headerlink" title="形参和实参"></a>形参和实参</h4><p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image024.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 形参：声明函数时写在函数名右边小括号里的叫形参（形式上的参数）</p>
+<p>l 实参：调用函数时写在函数名右边小括号里的叫实参（实际上的参数）,调用的时候，没有传递实参，则默认为 0.</p>
+<p>l 形参可以理解为是在这个函数内声明的变量（比如 num1 &#x3D; 10）实参可以理解为是给这个变量赋值</p>
+<p>l 开发中尽量保持形参和实参个数一致，如果实参个数少于形参 返回的结果 NaN,如果实参个数大于形参，多余的会被忽略。</p>
+<p>合理利用逻辑中断</p>
+<p>l 形参如果不被赋值，就是 undefined</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image026.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>额外：</strong>上面的写法可能有些繁琐，可以如下写</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image028.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l x 和 y 可以看做是 函数内部的局部变量</p>
+<p>n 调用的时候会有个内部判断是否有参数传递过来</p>
+<p>n 没有参数 则 执行 x &#x3D; 0</p>
+<p>n 有参数，则执行 实参赋值</p>
+<h2 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h2><h4 id="为什么要让函数有返回值"><a href="#为什么要让函数有返回值" class="headerlink" title="为什么要让函数有返回值"></a>为什么要让函数有返回值</h4><p>函数是被设计为执行特定任务的代码块，执行结束后把任务的结果给我们。</p>
+<p>l <strong>缺点：</strong>把计算后的结果处理方式写死了，内部处理了</p>
+<p>l <strong>解决：</strong>把处理结果返回给调用者</p>
+<p>l <strong>有返回值函数的概念：</strong></p>
+<p>n 当调用某个函数，这个函数会返回一个结果出来</p>
+<p>n 这就是有返回值的函数</p>
+<p>l 其实我们前面已经接触了很多的函数具备返回值：</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image030.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 只是这些函数是 JS 底层内置的.我们直接就可以使用</p>
+<p>l 当然有些函数，则没有返回值</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image032.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 所以要根据需求，来设定需不需要返回值</p>
+<h4 id="用-return-返回数据"><a href="#用-return-返回数据" class="headerlink" title="用 return 返回数据"></a>用 return 返回数据</h4><p>语法：</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image034.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image036.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>用法：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image038.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：</strong></p>
+<p>l 在函数体中使用 return 关键字能将内部的执行结果交给函数外部使用</p>
+<p>l 函数内部只能出现 1 次 return，并且 return 后面代码不会再被执行，所以 return 后面的数据不要换行写</p>
+<p>l return 会立即结束当前函数</p>
+<p>l 函数可以没有 return，这种情况函数默认返回值为 undefined</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image040.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 在现实开发中，考虑到函数名可能会很长，通常会将函数赋值给一个变量。</p>
+<h5 id="用-return-返回多个数据"><a href="#用-return-返回多个数据" class="headerlink" title="用 return 返回多个数据"></a>用 return 返回多个数据</h5><p>l return 可以写多个，但是条件是只能执行 1 个</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image042.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l return 只能返回一个值， 要想返回多个值需要加中括号 return [jia, jian] 使其变为一个数组 , 不加括号的话默认返回最后一个值</p>
+<p>l 取值时利用数组下标进行取值</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image044.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l <strong>案例：判断两个值的大小时，可以用三元运算符返回值。</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image046.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><h4 id="作用域概述"><a href="#作用域概述" class="headerlink" title="作用域概述"></a>作用域概述</h4><p>通常来说，一段程序代码中所用到的名字并不总是有效和可用的，而限定这个名字的可用性的代码范围就是这</p>
+<p>个名字的作用域。作用域的使用提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image048.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h4><p>let 语法的不同作用域</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image050.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 变量有一个坑， 特殊情况：</p>
+<p>如果函数内部或者块级作用域内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐</p>
+<p>但是有一种情况，函数内部的形参可以看做是局部变量。</p>
+<h4 id="变量访问原则-作用域链"><a href="#变量访问原则-作用域链" class="headerlink" title="变量访问原则-作用域链"></a>变量访问原则-作用域链</h4><p>l 只要是代码，就至少有一个作用域</p>
+<p>l 写在函数内部的局部作用域</p>
+<p>l 如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域</p>
+<p>l 根据在内部函数可以访问外部函数变量的这种机制，用链式查找决定哪些数据能被内部函数访问，就称作作用域链</p>
+<p>l 作用域链：采取就近原则的方式来查找变量最终的值</p>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p><strong>函数可以分为：</strong></p>
+<p>l <strong>具名函数</strong></p>
+<p>n 声明：function fn（）{}</p>
+<p>n 调用： fn（）</p>
+<p>l <strong>匿名函数</strong></p>
+<p>n function() {}</p>
+<h4 id="匿名函数的写法："><a href="#匿名函数的写法：" class="headerlink" title="匿名函数的写法："></a>匿名函数的写法：</h4><p><strong>语法：</strong></p>
+<p><strong>函数表达式：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image052.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>调用：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image054.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意:</strong> 其中函数的形参和实参使用跟具名函数一致。</p>
+<p><strong>使用场景:</strong></p>
+<p>后期 web API 会使用：</p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image056.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><p>场景介绍: 避免全局变量之间的污染</p>
+<p>外面用小括号包裹</p>
+<p><strong>语法：</strong></p>
+<p><img src="/img/JS%E5%9F%BA%E7%A1%80/day04/clip_image058.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：</strong></p>
+<p>l 多个立即执行函数要用 ; 隔开，要不然会报错，用其他语法隔开也不行。</p>
+<p>l 第一个小括号放的 形参 第二个小括号放的是实参</p>
+<p>l 就算仍旧在里面添加函数名，仍然能立即执行函数</p>
+<h1 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h1><h3 id="预解析的相关概念"><a href="#预解析的相关概念" class="headerlink" title="预解析的相关概念"></a>预解析的相关概念</h3><p>JavaScript 代码是由浏览器中的 JavaScript 解析器来执行的。JavaScript 解析器在运行 JavaScript 代码的时候分为两步：预解析和代码执行.</p>
+<p>l 预解析：在当前作用域下, JS 代码执行之前，<strong>浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义</strong>。</p>
+<p>l 代码执行： 从上到下执行 JS 语句。</p>
+<p><strong>预解析会把变量和函数的声明在代码执行之前执行完成。</strong></p>
+<h3 id="变量预解析"><a href="#变量预解析" class="headerlink" title="变量预解析"></a>变量预解析</h3><p>预解析也叫做变量、函数提升。</p>
+<p>变量提升（变量预解析）： 变量的声明会被提升到当前作用域的最上面，变量的赋值不会提升。</p>
+<p>console.log(num); &#x2F;&#x2F; 结果是多少？ 结果：undefined</p>
+<p>var num &#x3D; 10; &#x2F;&#x2F; ？</p>
+<p>注意：<strong>变量提升只提升声明，不提升赋值</strong></p>
+<h3 id="函数预解析"><a href="#函数预解析" class="headerlink" title="函数预解析"></a>函数预解析</h3><p>函数提升： 函数的声明会被提升到当前作用域的最上面，但是不会调用函数。</p>
+<p>fn();</p>
+<p>function fn() {</p>
+<p>​ console.log(‘打印’);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 结果：控制台打印字符串 — ”打印“</p>
+<p>注意：函数声明代表函数整体，所以函数提升后，函数名代表整个函数，但是函数并没有被调用！</p>
+<h3 id="函数表达式声明函数问题"><a href="#函数表达式声明函数问题" class="headerlink" title="函数表达式声明函数问题"></a>函数表达式声明函数问题</h3><p>函数表达式创建函数，会执行变量提升，此时接收函数的变量名无法正确的调用：</p>
+<p>fn();</p>
+<p>var fn &#x3D; function() {</p>
+<p>​ console.log(‘想不到吧’);</p>
+<p>} &#x2F;&#x2F; 结果：报错提示 ”fn is not a function”</p>
+<p>解释：该段代码执行之前，会做变量声明提升，fn 在提升之后的值是 undefined；而 fn 调用是在 fn 被赋值为函数体之前，此时 fn 的值是 undefined，所以无法正确调用</p>
+<h1 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h1><h2 id="转换时间案例"><a href="#转换时间案例" class="headerlink" title="转换时间案例"></a>转换时间案例</h2><p>需求： 用户输入秒数，可以自动转换为时分秒</p>
+<p>分析：</p>
+<p>①： 用户输入总秒数</p>
+<p>②：计算时分秒（封装函数） 里面包含数字补 0</p>
+<p>③：打印输出</p>
+<p>计算公式：计算时分秒</p>
+<p>小时： h &#x3D; parseInt(总秒数 &#x2F; 60 &#x2F; 60 % 24)</p>
+<p>分钟： m &#x3D; parseInt(总秒数 &#x2F; 60 % 60 )</p>
+<p>秒数: s &#x3D; parseInt(总秒数 % 60)</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS%E5%9F%BA%E7%A1%80/" class="category-chain-item">JS基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Day04</div>
+      <div>https://hansomewang666.github.io/2022/05/05/JS基础/day04/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wmr</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/05/JS%E5%9F%BA%E7%A1%80/day05/" title="Day05">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day05</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/05/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/" title="手写实现一个new">
+                        <span class="hidden-mobile">手写实现一个new</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

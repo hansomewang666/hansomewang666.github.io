@@ -1,0 +1,1022 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wmr">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="jQuery 概述JavaScript 库**JavaScript****库：**即 library，是一个封装好的特定的集合（方法和函数）。从封装一大堆函数的角度理解库，就是在这个库中，封装了很多预先定义好的函数在里面，比如动画 animate、hide、show，比如获取元素等。 简单理解： 就是一个 JS 文件，里面对我们原生 js 代码进行了封装，存放到里面。这样我们可以快速高效的使用这些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day01">
+<meta property="og:url" content="https://hansomewang666.github.io/2022/05/05/jQuery/day01/index.html">
+<meta property="og:site_name" content="Wmr&#39;s Blog">
+<meta property="og:description" content="jQuery 概述JavaScript 库**JavaScript****库：**即 library，是一个封装好的特定的集合（方法和函数）。从封装一大堆函数的角度理解库，就是在这个库中，封装了很多预先定义好的函数在里面，比如动画 animate、hide、show，比如获取元素等。 简单理解： 就是一个 JS 文件，里面对我们原生 js 代码进行了封装，存放到里面。这样我们可以快速高效的使用这些">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image002.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image004.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image006.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image008.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image010.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image012.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image014.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image016.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image018.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image020.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image022.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image024.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image026.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image028.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image030.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image032.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image034.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image036.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image038.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image040.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image042.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image044.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image046.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image048.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image050.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image052.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image054.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image056.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image058.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image060.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image062.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image064.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image066.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image068.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image070.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image072.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image074.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image076.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image078.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image080.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image082.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image084.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image086.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image088.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image090.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image092.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image094.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image096.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image098.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image100.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image102.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image104.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image106.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image108.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image110.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image112.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image114.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image116.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image118.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image120.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image122.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image124.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image126.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image128.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image130.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image132.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image134.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image136.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image138.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image140.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image142.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image144.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image146.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image148.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image150.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image152.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image154.gif">
+<meta property="article:published_time" content="2022-05-05T02:43:13.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:20:03.564Z">
+<meta property="article:author" content="Wmr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hansomewang666.github.io/img/jQuery/day01/clip_image002.gif">
+  
+  
+  <title>Day01 - Wmr&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wmr&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nidemingzi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Day01"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-05 10:43" pubdate>
+          2022年5月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day01</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="jQuery-概述"><a href="#jQuery-概述" class="headerlink" title="jQuery 概述"></a>jQuery 概述</h1><h2 id="JavaScript-库"><a href="#JavaScript-库" class="headerlink" title="JavaScript 库"></a>JavaScript 库</h2><p>**JavaScript****库：**即 library，是一个封装好的特定的集合（方法和函数）。从封装一大堆函数的角度理解库，就是在这个库中，封装了很多预先定义好的函数在里面，比如动画 animate、hide、show，比如获取元素等。</p>
+<p>简单理解： 就是一个 JS 文件，里面对我们原生 js 代码进行了封装，存放到里面。这样我们可以快速高效的使用这些封装好的功能了。比如 jQuery，就是为了快速方便的操作 DOM，里面基本都是函数（方法）。</p>
+<p>学习 jQuery 本质： 就是学习调用这些函数（方法），从而开发效率。</p>
+<h2 id="常见的-JavaScript-库"><a href="#常见的-JavaScript-库" class="headerlink" title="常见的 JavaScript 库"></a>常见的 JavaScript 库</h2><p>l jQuery</p>
+<p>l Prototype</p>
+<p>l YUI</p>
+<p>l Dojo</p>
+<p>l Ext JS 移动端的 zepto</p>
+<p>l 这些库都是对原生 JavaScript 的封装，内部都是用 JavaScript 实现的，我们主要学习的是 jQuery。其他库都已淘汰</p>
+<h2 id="jQuery-的入口函数"><a href="#jQuery-的入口函数" class="headerlink" title="jQuery 的入口函数"></a>jQuery 的入口函数</h2><p>一开始对页面所有 DOM 元素做一个监听，等所有 DOM 元素加载完后执行代码</p>
+<p>设置后可以将<script>标签写在 dom 元素前面</p>
+<p><img src="/img/jQuery/day01/clip_image002.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image004.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image006.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image008.gif" srcset="/img/loading.gif" lazyload></p>
+<p>1.等着 DOM 结构渲染完毕即可执行内部代码，不必等到所有外部资源加载完成，jQuery 帮我们完成了封装。</p>
+<p>2.相当于原生 js 中的 DOMContentLoaded。</p>
+<p>3.不同于原生 js 中的 load 事件是等页面文档、外部的 js 文件、css 文件、图片加载完毕才执行内部代码。</p>
+<p>\4. 更推荐使用第一种方式。</p>
+<h2 id="jQuery-的顶级对象"><a href="#jQuery-的顶级对象" class="headerlink" title="jQuery 的顶级对象 $"></a>jQuery 的顶级对象 $</h2><p>1.$ 是 jQuery 的别称，在代码中可以使用 jQuery 代替 $，但一般为了方便，通常都直接使用 $ 。</p>
+<p>2.$ 是 jQuery 的顶级对象， 相当于原生 JavaScript 中的 window。把元素利用$包装成 jQuery 对象，就可以调用 jQuery 的方法。</p>
+<h2 id="jQuery-对象和-DOM-对象"><a href="#jQuery-对象和-DOM-对象" class="headerlink" title="jQuery 对象和 DOM 对象"></a>jQuery 对象和 DOM 对象</h2><p>\1. 用原生 JS 获取来的对象就是 DOM 对象</p>
+<p>\2. jQuery 方法获取的元素就是 jQuery 对象。</p>
+<p>\3. jQuery 对象本质是： 利用$对 DOM 对象包装后产生的对象（伪数组形式存储）。</p>
+<p><strong>注意：</strong></p>
+<p><strong>只有 jQuery 对象才能使用 jQuery 方法，DOM 对象则使用原生的 JavaScirpt 方法。</strong></p>
+<p>DOM 对象与 jQuery 对象之间是可以相互转换的。</p>
+<p>因为原生 js 比 jQuery 更大，原生的一些属性和方法 jQuery 没有给我们封装. 要想使用这些属性和方法需要把 jQuery 对象转换为 DOM 对象才能使用。</p>
+<p>\1. DOM 对象转换为 jQuery 对象： $(DOM 对象)</p>
+<p><img src="/img/jQuery/day01/clip_image010.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\2. jQuery 对象转换为 DOM 对象（两种方式）</p>
+<p>加索引号</p>
+<p><img src="/img/jQuery/day01/clip_image012.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image014.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a>jQuery 选择器</h1><h2 id="jQuery-基础选择器"><a href="#jQuery-基础选择器" class="headerlink" title="jQuery 基础选择器"></a>jQuery 基础选择器</h2><p>原生 JS 获取元素方式很多，很杂，而且兼容性情况不一致，因此 jQuery 给我们做了封装，使获取元素统一标准。</p>
+<p><img src="/img/jQuery/day01/clip_image016.gif" srcset="/img/loading.gif" lazyload></p>
+<p>在添加动态元素时可以应用在引号里面写出完整的 html 标签</p>
+<p><img src="/img/jQuery/day01/clip_image018.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image020.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image022.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意事项：并集选择器中所有元素以一对引号包裹</strong></p>
+<h4 id="jQuery-设置样式"><a href="#jQuery-设置样式" class="headerlink" title="jQuery 设置样式"></a>jQuery 设置样式</h4><p><img src="/img/jQuery/day01/clip_image024.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="隐式迭代（重要）"><a href="#隐式迭代（重要）" class="headerlink" title="隐式迭代（重要）"></a>隐式迭代（重要）</h2><p>遍历内部 DOM 元素（伪数组形式存储）的过程就叫做<strong>隐式迭代。（自动遍历）</strong></p>
+<p>简单理解：给匹配到的所有元素进行循环遍历，执行相应的方法，而不用我们再进行循环，简化我们的操作，方便我们调用。</p>
+<p>如何指向其中一个，举例：mouseenter 事件</p>
+<p>用 this 指向鼠标指向的那么元素即可修改属性</p>
+<h2 id="jQuery-筛选选择器"><a href="#jQuery-筛选选择器" class="headerlink" title="jQuery 筛选选择器"></a>jQuery 筛选选择器</h2><p>添加在子元素上</p>
+<h4 id="常用筛选选择器"><a href="#常用筛选选择器" class="headerlink" title="常用筛选选择器"></a>常用筛选选择器</h4><p><img src="/img/jQuery/day01/clip_image026.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="checked-选择器"><a href="#checked-选择器" class="headerlink" title=":checked 选择器"></a>:checked 选择器</h4><p>:checked 筛选出被选中的表单元素，以对象形式存储，有 length</p>
+<h2 id="jQuery-筛选方法（重点）"><a href="#jQuery-筛选方法（重点）" class="headerlink" title="jQuery 筛选方法（重点）"></a>jQuery 筛选方法（重点）</h2><p><img src="/img/jQuery/day01/clip_image028.gif" srcset="/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th><strong>语法</strong></th>
+<th><strong>用法</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>next()</td>
+<td>$(‘ li ‘).next()</td>
+<td>查找当前元素后面一个兄弟元素</td>
+</tr>
+<tr>
+<td>prev()</td>
+<td>$(‘ li ‘).prev()</td>
+<td>查找当前元素前面一个兄弟元素</td>
+</tr>
+</tbody></table>
+<p>注意: siblings()括号里不添加元素指的是除了自身元素之外的所有亲兄弟，添加元素这个则是指所有兄弟里的该元素。</p>
+<p>重点记住： parent() children() find() siblings() eq()</p>
+<p>其他：parents()可以返回指定祖先元素集，可通过指定要选择的祖先选择器类名来得到</p>
+<p><img src="/img/jQuery/day01/clip_image030.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="jQuery-排他思想"><a href="#jQuery-排他思想" class="headerlink" title="jQuery 排他思想"></a>jQuery 排他思想</h2><p>先写自己，再写其他兄弟</p>
+<p>想要多选一的效果，排他思想：当前元素设置样式，其余的兄弟元素清除样式。</p>
+<p>$(this) jQuery 当前元素 this 不要加引号</p>
+<p><img src="/img/jQuery/day01/clip_image032.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="jQuery-得到当前元素索引号"><a href="#jQuery-得到当前元素索引号" class="headerlink" title="jQuery 得到当前元素索引号"></a>jQuery 得到当前元素索引号</h2><p>使用$(this).index() 获得索引号，通过 eq(index)方法去选择</p>
+<p>注意这是个方法，index 后面要添加小括号</p>
+<h2 id="链式编程"><a href="#链式编程" class="headerlink" title="链式编程"></a>链式编程</h2><p>链式编程是为了节省代码量，看起来更优雅。(将重复的部分合并，不同的部分加起来)</p>
+<p><img src="/img/jQuery/day01/clip_image034.gif" srcset="/img/loading.gif" lazyload></p>
+<p>使用链式编程一定注意是哪个对象执行样式.</p>
+<h1 id="jQuery-样式操作"><a href="#jQuery-样式操作" class="headerlink" title="jQuery 样式操作"></a>jQuery 样式操作</h1><h2 id="操作-css-方法"><a href="#操作-css-方法" class="headerlink" title="操作 css 方法"></a>操作 css 方法</h2><p>jQuery 可以使用 css 方法来修改简单元素样式； 也可以操作类，修改多个样式。</p>
+<p>\1. 参数只写属性名，则是返回属性值</p>
+<p><img src="/img/jQuery/day01/clip_image036.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\2. 参数是属性名，属性值，逗号分隔，是设置一组样式，属性必须加引号，值如果是数字可以不用跟单位和引号,属性名如果有短杠衔接需要加引号，或者使用驼峰命名法</p>
+<p><img src="/img/jQuery/day01/clip_image038.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\3. 参数可以是对象形式，方便设置多组样式。属性名和属性值用冒号隔开，属性名可以不用加引号，如果是单项样式则必须加引号</p>
+<p><strong>对象形式，属性名不用加引号，属性名如果有短杠衔接需要加引号，或者使用驼峰命名法</strong></p>
+<p><img src="/img/jQuery/day01/clip_image040.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="设置类样式方法"><a href="#设置类样式方法" class="headerlink" title="设置类样式方法"></a>设置类样式方法</h2><p>作用等同于以前的 classList，可以操作类样式， 注意操作类里面的参数不要加点。</p>
+<p>\1. 添加类</p>
+<p><img src="/img/jQuery/day01/clip_image042.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\2. 移除类</p>
+<p><img src="/img/jQuery/day01/clip_image044.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\3. 切换类</p>
+<p><img src="/img/jQuery/day01/clip_image046.gif" srcset="/img/loading.gif" lazyload></p>
+<p>一些运动的动画类效果可以通过添加移除或者切换来实现正放和倒放</p>
+<p>例如：</p>
+<p><img src="/img/jQuery/day01/clip_image048.gif" srcset="/img/loading.gif" lazyload></p>
+<p>添加和删除这个类可使元素正旋转和逆旋转</p>
+<h2 id="类操作与-className-区别"><a href="#类操作与-className-区别" class="headerlink" title="类操作与 className 区别"></a>类操作与 className 区别</h2><p>l 原生 JS 中 className 会覆盖元素原先里面的类名。</p>
+<p>l jQuery 里面类操作只是对指定类进行操作，不影响原先的类名。</p>
+<h1 id="jQuery-绑定事件"><a href="#jQuery-绑定事件" class="headerlink" title="jQuery 绑定事件"></a>jQuery 绑定事件</h1><p><strong>语法：</strong></p>
+<p><strong>$</strong>('选择器').注册事件名(click 等)(function() {})</p>
+<h3 id="hover-事件"><a href="#hover-事件" class="headerlink" title="hover 事件"></a>hover 事件</h3><p>鼠标悬浮和离开时触发，和 mouseenter，mouseleave 等同效果。</p>
+<p><img src="/img/jQuery/day01/clip_image050.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>$('元素').click('委托元素',function () {})</p>
+<h1 id="jQuery-效果"><a href="#jQuery-效果" class="headerlink" title="jQuery 效果"></a>jQuery 效果</h1><h2 id="显示隐藏效果"><a href="#显示隐藏效果" class="headerlink" title="显示隐藏效果"></a>显示隐藏效果</h2><h3 id="显示效果"><a href="#显示效果" class="headerlink" title="显示效果"></a>显示效果</h3><h4 id="显示语法规范"><a href="#显示语法规范" class="headerlink" title="显示语法规范"></a>显示语法规范</h4><p>括号里面不用加中括号，easing 指定切换效果需要加引号</p>
+<p><img src="/img/jQuery/day01/clip_image052.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="显示参数"><a href="#显示参数" class="headerlink" title="显示参数"></a>显示参数</h4><p>（1）参数都可以省略， 无动画直接显示。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="隐藏效果"><a href="#隐藏效果" class="headerlink" title="隐藏效果"></a>隐藏效果</h3><h4 id="隐藏语法规范"><a href="#隐藏语法规范" class="headerlink" title="隐藏语法规范"></a>隐藏语法规范</h4><p>括号里面不用加中括号，easing 指定切换效果需要加引号</p>
+<p><img src="/img/jQuery/day01/clip_image054.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="隐藏参数"><a href="#隐藏参数" class="headerlink" title="隐藏参数"></a>隐藏参数</h4><p>（1）参数都可以省略， 无动画直接显示。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="切换效果"><a href="#切换效果" class="headerlink" title="切换效果"></a>切换效果</h3><h4 id="切换语法规范"><a href="#切换语法规范" class="headerlink" title="切换语法规范"></a>切换语法规范</h4><p>括号里面不用加中括号，easing 指定切换效果需要加引号</p>
+<p><img src="/img/jQuery/day01/clip_image056.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="切换参数"><a href="#切换参数" class="headerlink" title="切换参数"></a>切换参数</h3><p>（1）参数都可以省略， 无动画直接显示。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<p>建议：平时一般不带参数，直接显示隐藏即可。</p>
+<h2 id="滑动效果"><a href="#滑动效果" class="headerlink" title="滑动效果"></a>滑动效果</h2><p>滑动效果只是将目标元素设置为了 display：none 隐藏起来了，并没有将其删除</p>
+<h3 id="下滑效果"><a href="#下滑效果" class="headerlink" title="下滑效果"></a>下滑效果</h3><h4 id="下滑效果语法规范"><a href="#下滑效果语法规范" class="headerlink" title="下滑效果语法规范"></a>下滑效果语法规范</h4><p><img src="/img/jQuery/day01/clip_image058.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="下滑效果参数"><a href="#下滑效果参数" class="headerlink" title="下滑效果参数"></a>下滑效果参数</h4><p>（1）参数都可以省略。</p>
+<p>（2）speed:三种预定速度之一的字符串(“slow”,“normal”,or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing:(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="上滑效果"><a href="#上滑效果" class="headerlink" title="上滑效果"></a>上滑效果</h3><h4 id="上滑效果语法规范"><a href="#上滑效果语法规范" class="headerlink" title="上滑效果语法规范"></a>上滑效果语法规范</h4><p><img src="/img/jQuery/day01/clip_image060.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="上滑效果参数"><a href="#上滑效果参数" class="headerlink" title="上滑效果参数"></a>上滑效果参数</h3><p>（1）参数都可以省略。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="滑动切换效果"><a href="#滑动切换效果" class="headerlink" title="滑动切换效果"></a>滑动切换效果</h3><h4 id="滑动切换效果语法规范"><a href="#滑动切换效果语法规范" class="headerlink" title="滑动切换效果语法规范"></a>滑动切换效果语法规范</h4><p><img src="/img/jQuery/day01/clip_image062.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="滑动切换效果参数"><a href="#滑动切换效果参数" class="headerlink" title="滑动切换效果参数"></a>滑动切换效果参数</h4><p>（1）参数都可以省略。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h2 id="事件切换"><a href="#事件切换" class="headerlink" title="事件切换"></a>事件切换</h2><p><img src="/img/jQuery/day01/clip_image064.gif" srcset="/img/loading.gif" lazyload></p>
+<p>（1）over:鼠标移到元素上要触发的函数（相当于 mouseenter）</p>
+<p>（2）out:鼠标移出元素要触发的函数（相当于 mouseleave）</p>
+<p>（3）如果只写一个函数，则鼠标经过和离开都会触发它</p>
+<h2 id="动画队列及其停止排队方法"><a href="#动画队列及其停止排队方法" class="headerlink" title="动画队列及其停止排队方法"></a>动画队列及其停止排队方法</h2><h4 id="动画或效果队列"><a href="#动画或效果队列" class="headerlink" title="动画或效果队列"></a>动画或效果队列</h4><p>动画或者效果一旦触发就会执行，如果多次触发，就造成多个动画或者效果排队执行。</p>
+<h4 id="停止排队"><a href="#停止排队" class="headerlink" title="停止排队"></a>停止排队</h4><p><img src="/img/jQuery/day01/clip_image066.gif" srcset="/img/loading.gif" lazyload></p>
+<p>(1）stop() 方法用于停止动画或效果。</p>
+<p>(2) 注意： stop()写到动画或者效果的前面，相当于停止结束上一次的动画。</p>
+<h2 id="淡入淡出效果"><a href="#淡入淡出效果" class="headerlink" title="淡入淡出效果"></a>淡入淡出效果</h2><h3 id="淡入效果"><a href="#淡入效果" class="headerlink" title="淡入效果"></a>淡入效果</h3><h4 id="淡入效果语法规范"><a href="#淡入效果语法规范" class="headerlink" title="淡入效果语法规范"></a>淡入效果语法规范</h4><p><img src="/img/jQuery/day01/clip_image068.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="淡入效果参数"><a href="#淡入效果参数" class="headerlink" title="淡入效果参数"></a>淡入效果参数</h4><p>（1）参数都可以省略。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="淡出效果"><a href="#淡出效果" class="headerlink" title="淡出效果"></a>淡出效果</h3><h4 id="淡出效果语法规范"><a href="#淡出效果语法规范" class="headerlink" title="淡出效果语法规范"></a>淡出效果语法规范</h4><p><img src="/img/jQuery/day01/clip_image070.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="淡出效果参数"><a href="#淡出效果参数" class="headerlink" title="淡出效果参数"></a>淡出效果参数</h4><p>（1）参数都可以省略。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="淡入淡出切换效果"><a href="#淡入淡出切换效果" class="headerlink" title="淡入淡出切换效果"></a>淡入淡出切换效果</h3><h4 id="淡入淡出切换效果语法规范"><a href="#淡入淡出切换效果语法规范" class="headerlink" title="淡入淡出切换效果语法规范"></a>淡入淡出切换效果语法规范</h4><p><img src="/img/jQuery/day01/clip_image072.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="淡入淡出切换效果参数"><a href="#淡入淡出切换效果参数" class="headerlink" title="淡入淡出切换效果参数"></a>淡入淡出切换效果参数</h4><p>（1）参数都可以省略。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h3 id="渐进方式调整到指定的不透明度"><a href="#渐进方式调整到指定的不透明度" class="headerlink" title="渐进方式调整到指定的不透明度"></a>渐进方式调整到指定的不透明度</h3><p><img src="/img/jQuery/day01/clip_image074.gif" srcset="/img/loading.gif" lazyload></p>
+<h3 id="效果参数"><a href="#效果参数" class="headerlink" title="效果参数"></a>效果参数</h3><p>（1）opacity 透明度必须写，取值 0~1 之间。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。必须写</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<h2 id="自定义动画-animate"><a href="#自定义动画-animate" class="headerlink" title="自定义动画 animate"></a>自定义动画 animate</h2><p><strong>语法：</strong></p>
+<p><img src="/img/jQuery/day01/clip_image076.gif" srcset="/img/loading.gif" lazyload></p>
+<p>params 是以对象形式存储样式属性，可以写多个样式属性</p>
+<p><img src="/img/jQuery/day01/clip_image078.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>参数：</strong></p>
+<p>（1）params: 想要更改的样式属性，以对象形式传递，必须写。属性名可以不用带引号， 如果是复合属性则需要采取驼峰命名法 borderLeft。其余参数都可以省略。</p>
+<p>（2）speed：三种预定速度之一的字符串(“slow”,“normal”, or “fast”)或表示动画时长的毫秒数值(如：1000)。</p>
+<p>（3）easing：(Optional) 用来指定切换效果，默认是“swing”，可用参数“linear”。</p>
+<p>（4）fn: 回调函数，在动画完成时执行的函数，每个元素执行一次。</p>
+<p>注意：</p>
+<p>\1. 自定义动画可以写多个，设置不同数值，动画效果会安书写顺序依次呈现。</p>
+<p>\2. jQuery 里面的自定义动画不能设置背景色和 transform，只能改数值。</p>
+<p><img src="/img/jQuery/day01/clip_image080.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="jQuery-属性操作"><a href="#jQuery-属性操作" class="headerlink" title="jQuery 属性操作"></a>jQuery 属性操作</h1><h2 id="设置或获取元素固有属性值-prop"><a href="#设置或获取元素固有属性值-prop" class="headerlink" title="设置或获取元素固有属性值 prop()"></a>设置或获取元素固有属性值 prop()</h2><p>所谓元素固有属性就是元素本身自带的属性，比如 <a>元素里面的 href ，比如 <input>元素里面的 type。</p>
+<h4 id="获取固有属性语法"><a href="#获取固有属性语法" class="headerlink" title="获取固有属性语法"></a>获取固有属性语法</h4><p><img src="/img/jQuery/day01/clip_image082.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="设置属性语法"><a href="#设置属性语法" class="headerlink" title="设置属性语法"></a>设置属性语法</h4><p><img src="/img/jQuery/day01/clip_image084.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="设置或获取元素自定义属性值-attr"><a href="#设置或获取元素自定义属性值-attr" class="headerlink" title="设置或获取元素自定义属性值 attr()"></a>设置或获取元素自定义属性值 attr()</h2><p>用户自己给元素添加的属性，我们称为自定义属性。比如给 div 添加 index=“1”。</p>
+<h4 id="获取属性语法"><a href="#获取属性语法" class="headerlink" title="获取属性语法"></a>获取属性语法</h4><p><img src="/img/jQuery/day01/clip_image086.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>设置属性语法</strong></p>
+<p><img src="/img/jQuery/day01/clip_image088.gif" srcset="/img/loading.gif" lazyload></p>
+<p>改方法也可以获取 H5 自定义属性</p>
+<h2 id="数据缓存-data"><a href="#数据缓存-data" class="headerlink" title="数据缓存 data()"></a>数据缓存 data()</h2><p>data() 方法可以在指定的元素上存取数据，并不会修改 DOM 元素结构。一旦页面刷新，之前存放的数据都将被移除。</p>
+<h4 id="附加数据语法"><a href="#附加数据语法" class="headerlink" title="附加数据语法"></a>附加数据语法</h4><p><img src="/img/jQuery/day01/clip_image090.gif" srcset="/img/loading.gif" lazyload></p>
+<p>附加的数据可以是对象</p>
+<p><img src="/img/jQuery/day01/clip_image092.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="获取数据语法"><a href="#获取数据语法" class="headerlink" title="获取数据语法"></a>获取数据语法</h4><p>name 名用驼峰命名法或者短横线</p>
+<p><img src="/img/jQuery/day01/clip_image094.gif" srcset="/img/loading.gif" lazyload></p>
+<p>同时，还可以读取 HTML5 自定义属性 data-index，得到的是数字型，获取 index 不用写 - 号</p>
+<p><img src="/img/jQuery/day01/clip_image096.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image098.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="change-事件"><a href="#change-事件" class="headerlink" title="change 事件"></a>change 事件</h2><p>当表单元素值发生改变或光标失去焦点时要发生的事</p>
+<p><img src="/img/jQuery/day01/clip_image100.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="jQuery-内容文本值"><a href="#jQuery-内容文本值" class="headerlink" title="jQuery 内容文本值"></a>jQuery 内容文本值</h1><p>**普通元素内容 html()（****相当于原生 inner HTML 能识别标签)**</p>
+<p><img src="/img/jQuery/day01/clip_image102.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image104.gif" srcset="/img/loading.gif" lazyload></p>
+<p>元素的内容（比如：标签里面要添加两个不同内容）可以通过+加号来拼接</p>
+<p><img src="/img/jQuery/day01/clip_image106.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>普通元素文本内容 text() (相当与原生 innerText 不能识别标签)</strong></p>
+<p><img src="/img/jQuery/day01/clip_image108.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image110.gif" srcset="/img/loading.gif" lazyload></p>
+<p>**表单的值 val()（****相当于原生 value)**</p>
+<p><img src="/img/jQuery/day01/clip_image112.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image114.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="jQuery-元素操作"><a href="#jQuery-元素操作" class="headerlink" title="jQuery 元素操作"></a>jQuery 元素操作</h1><p>主要是遍历、创建、添加、删除元素操作。</p>
+<h2 id="遍历元素"><a href="#遍历元素" class="headerlink" title="遍历元素"></a>遍历元素</h2><p>jQuery 隐式迭代是对同一类元素做了同样的操作。如果想要给同一类元素做不同操作，就需要用到遍历。</p>
+<h4 id="语法-1："><a href="#语法-1：" class="headerlink" title="语法 1："></a>语法 1：</h4><p><img src="/img/jQuery/day01/clip_image116.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\1. each() 方法遍历匹配的每一个元素。主要用 DOM 处理。 each 每一个</p>
+<p><img src="/img/jQuery/day01/clip_image118.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\2. 里面的回调函数有 2 个参数： index 是每个元素的索引号; demEle 是每个 DOM 元素对象，不是 jquery 对象</p>
+<p>\3. 所以要想使用 jquery 方法，需要给这个 dom 元素转换为 jquery 对象 $(domEle)</p>
+<h4 id="语法-2："><a href="#语法-2：" class="headerlink" title="语法 2："></a>语法 2：</h4><p><img src="/img/jQuery/day01/clip_image120.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\1. $.each()方法可用于遍历任何对象。主要用于数据处理，比如数组，对象</p>
+<p><img src="/img/jQuery/day01/clip_image122.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\2. 里面的函数有 2 个参数： index 是每个元素的索引号; element 遍历内容</p>
+<h2 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h2><h4 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h4><p><img src="/img/jQuery/day01/clip_image124.gif" srcset="/img/loading.gif" lazyload></p>
+<p>动态的创建了一个 <li></p>
+<p><strong>修改元素内容：</strong></p>
+<p><img src="/img/jQuery/day01/clip_image126.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><h4 id="内部添加"><a href="#内部添加" class="headerlink" title="内部添加"></a>内部添加</h4><p><img src="/img/jQuery/day01/clip_image128.gif" srcset="/img/loading.gif" lazyload></p>
+<p>把内容放入匹配元素内部最后面，类似原生 appendChild。</p>
+<p><img src="/img/jQuery/day01/clip_image130.gif" srcset="/img/loading.gif" lazyload></p>
+<p>把内容放入匹配元素内部最前面。</p>
+<p>注意： 每创建一个元素只能添加添加一个，要添加多个得多次创建</p>
+<p><img src="/img/jQuery/day01/clip_image132.gif" srcset="/img/loading.gif" lazyload></p>
+<h4 id="外部添加"><a href="#外部添加" class="headerlink" title="外部添加"></a>外部添加</h4><p><img src="/img/jQuery/day01/clip_image134.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image136.gif" srcset="/img/loading.gif" lazyload></p>
+<p>① 内部添加元素，生成之后，它们是父子关系。</p>
+<p>② 外部添加元素，生成之后，他们是兄弟关系。</p>
+<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><p><img src="/img/jQuery/day01/clip_image138.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image140.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/jQuery/day01/clip_image142.gif" srcset="/img/loading.gif" lazyload></p>
+<p>① remove(空) 删除元素本身。</p>
+<p>② empt() 和 html('''') 作用等价，都可以删除元素里面的内容，只不过 html 还可以设置内容。</p>
+<h1 id="jQuery-尺寸、位置操作"><a href="#jQuery-尺寸、位置操作" class="headerlink" title="jQuery 尺寸、位置操作"></a>jQuery 尺寸、位置操作</h1><h2 id="jQuery-尺寸"><a href="#jQuery-尺寸" class="headerlink" title="jQuery 尺寸"></a>jQuery 尺寸</h2><p><img src="/img/jQuery/day01/clip_image144.gif" srcset="/img/loading.gif" lazyload></p>
+<p>width()不包含 padding，只是内容大小</p>
+<p>l 以上参数为空，则是获取相应值，返回的是数字型。</p>
+<p>l 如果参数为数字，则是修改相应值。</p>
+<p>l 参数可以不必写单位</p>
+<h2 id="jQuery-位置"><a href="#jQuery-位置" class="headerlink" title="jQuery 位置"></a>jQuery 位置</h2><p>位置主要有三个： offset()、position()、scrollTop()/scrollLeft()</p>
+<h4 id="offset-设置或获取元素偏移"><a href="#offset-设置或获取元素偏移" class="headerlink" title="offset() 设置或获取元素偏移"></a>offset() 设置或获取元素偏移</h4><p>①offset() 方法设置或返回被选元素相对于<strong>文档</strong>的偏移坐标，跟父级没有关系。</p>
+<p>② 该方法有 2 个属性 left、top 。offset().top 用于获取距离文档顶部的距离，offset().left 用于获取距离文档左侧的距离。</p>
+<p>③ 可以设置元素的偏移：offset({top: 10, left: 30 });</p>
+<h4 id="position-获取元素偏移"><a href="#position-获取元素偏移" class="headerlink" title="position() 获取元素偏移"></a>position() 获取元素偏移</h4><p>①position() 方法用于返回被选元素相对于<strong>带有定位的父级</strong>偏移坐标，如果父级都没有定位，则以文档为准。</p>
+<p>② 该方法有 2 个属性 left、top。position().top 用于获取距离定位父级顶部的距离，position().left 用于获取距离定位父级左侧的距离。</p>
+<p>③ 该方法只能获取,不能设置。</p>
+<p><strong>scrollTop()/scrollLeft()</strong> <strong>设置或获取元素被卷去的头部和左侧</strong></p>
+<p>①scrollTop() 方法设置或返回被选元素被卷去的头部。</p>
+<p>② 不跟参数是获取，参数为不带单位的数字则是设置被卷去的头部。</p>
+<h1 id="案例：带有动画的返回顶部"><a href="#案例：带有动画的返回顶部" class="headerlink" title="案例：带有动画的返回顶部"></a>案例：带有动画的返回顶部</h1><p>animate 动画函数里面有个 scrollTop 属性，可以设置位置</p>
+<p>但是由于是网页元素做动画（滚动条慢慢往上移动）不能是文档做动画，因此用$('body,html').animate({scrollTop: 0})来做</p>
+<p>注意：选择网页元素用$('body,html)或者$('html')</p>
+<p><img src="/img/jQuery/day01/clip_image146.gif" srcset="/img/loading.gif" lazyload></p>
+<h1 id="案例：电梯导航节流阀-互斥锁"><a href="#案例：电梯导航节流阀-互斥锁" class="headerlink" title="案例：电梯导航节流阀(互斥锁)"></a>案例：电梯导航节流阀(互斥锁)</h1><p>代码存在小 bug：当点击左侧工具栏不同的 Li 时由于会触发右侧页面滚动的动画效果到指定的位置，</p>
+<p><img src="/img/jQuery/day01/clip_image148.gif" srcset="/img/loading.gif" lazyload></p>
+<p>而页面滚动至不同位置的同时又会触发函数里面左侧工具栏不同 Li 背景颜色切换效果</p>
+<p><img src="/img/jQuery/day01/clip_image150.gif" srcset="/img/loading.gif" lazyload></p>
+<p>从而形成一个相互冲突的动画效果（点击工具栏会使背景颜色切换到处乱变）</p>
+<p>因此需要应用节流阀的原理：当上一个函数动画内容执行完毕，再去执行下一个函数动画，让事件无法连续触发。</p>
+<p>方法：</p>
+<p>\1. 先声明一个 let flag = true</p>
+<p>\2. 设置如果 flag = true 时，打开另一个不想的打开的动画效果触发开关。</p>
+<p><img src="/img/jQuery/day01/clip_image152.gif" srcset="/img/loading.gif" lazyload></p>
+<p>\3. 而在我们想要触发动画效果的注册事件中设置 flag = false</p>
+<p>先关闭另外一个动画效果的触发开关，等到我们动画执行完毕时，利用 animate 的回调函数功能，添加 flag = true，重新打开另外动画效果的触发开关</p>
+<p><img src="/img/jQuery/day01/clip_image154.gif" srcset="/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/jQuery/" class="category-chain-item">jQuery</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Day01</div>
+      <div>https://hansomewang666.github.io/2022/05/05/jQuery/day01/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wmr</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/05/WebAPIs/day03/" title="Day03">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day03</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/05/jQuery/day02/" title="Day02">
+                        <span class="hidden-mobile">Day02</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

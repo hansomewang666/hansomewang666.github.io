@@ -1,0 +1,996 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wmr">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="正则表达式介绍什么是正则表达式l 正则表达式（Regular Expression）是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象 l 通常用来查找、替换那些符合正则表达式的文本，许多语言都支持正则表达式。 l 请在下图中找出【戴帽子和眼镜的男人】  l 戴帽子、戴眼镜、男人都是描述信息，通过这些信息能够在人群中查找到确定的某个人，那么这些用于查找的描述信息编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day07">
+<meta property="og:url" content="https://hansomewang666.github.io/2022/05/05/WebAPIs/day07/index.html">
+<meta property="og:site_name" content="Wmr&#39;s Blog">
+<meta property="og:description" content="正则表达式介绍什么是正则表达式l 正则表达式（Regular Expression）是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象 l 通常用来查找、替换那些符合正则表达式的文本，许多语言都支持正则表达式。 l 请在下图中找出【戴帽子和眼镜的男人】  l 戴帽子、戴眼镜、男人都是描述信息，通过这些信息能够在人群中查找到确定的某个人，那么这些用于查找的描述信息编">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image002.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image004.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image006.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image008.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image010.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image012.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image014.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image016.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image018.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image020.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image022.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image024.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image026.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image028.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image030.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image032.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image034.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image036.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image038.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image040.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image042.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image044.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image046.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image048.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image050.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image052.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image054.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image056.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image058.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image060.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image062.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image064.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image066.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image068.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image070.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image072.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image074.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image076.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image078.gif">
+<meta property="article:published_time" content="2022-05-05T02:43:13.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:07:46.368Z">
+<meta property="article:author" content="Wmr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hansomewang666.github.io/img/WebAPIs/day07/clip_image002.gif">
+  
+  
+  <title>Day07 - Wmr&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wmr&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nidemingzi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Day07"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-05 10:43" pubdate>
+          2022年5月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day07</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">正则表达式</a></h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h4 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h4><p>l 正则表达式（Regular Expression）是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象</p>
+<p>l 通常用来查找、替换那些符合正则表达式的文本，许多语言都支持正则表达式。</p>
+<p>l 请在下图中找出【戴帽子和眼镜的男人】</p>
+<p><img src="/img/WebAPIs/day07/clip_image002.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l 戴帽子、戴眼镜、男人都是描述信息，通过这些信息能够在人群中查找到确定的某个人，那么这些用于查找的描述信息编</p>
+<p>写一个模式，对应到计算机中就是所谓的正则表达式。</p>
+<h4 id="正则表达式在-JavaScript-中的使用场景"><a href="#正则表达式在-JavaScript-中的使用场景" class="headerlink" title="正则表达式在 JavaScript 中的使用场景"></a>正则表达式在 JavaScript 中的使用场景</h4><p>l 例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)</p>
+<p>l 比如用户名: &#x2F;^[a-z0-9_-]{3,16}$&#x2F; （只能输入英文 a-z，数字 0-9，下划线，减号。至少输入 3 位，最多输入 16 位）</p>
+<p>l 过滤掉页面内容中的一些敏感词(替换)，或从字符串中获取我们想要的特定部分(提取)等 。</p>
+<p><img src="/img/WebAPIs/day07/clip_image004.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>l 我们想要查找是否有戴眼镜的人, 怎么做呢？</p>
+<p>\1. 定义规则： 戴眼镜的</p>
+<p>\2. 根据规则去查找：找到则返回</p>
+<p>l 正则同样道理，我们分为两步：</p>
+<p>\1. 定义规则</p>
+<p>\2. 查找</p>
+<p>l 比如：查找下面文本中是否包含字符串 ‘前端’</p>
+<p><img src="/img/WebAPIs/day07/clip_image006.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l JavaScript 中定义正则表达式的语法有两种，我们先学习其中比较简单的方法：</p>
+<p>\1. <strong>定义正则表达式语法：</strong></p>
+<p><img src="/img/WebAPIs/day07/clip_image008.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>n 其中 &#x2F; &#x2F; 是正则表达式字面量</p>
+<p>l 比如：</p>
+<p><img src="/img/WebAPIs/day07/clip_image010.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>\2. <strong>判断是否有符合规则的字符串：</strong></p>
+<p>test() 方法 用来查看正则表达式与指定的字符串是否匹配</p>
+<p>l <strong>语法：</strong></p>
+<p><img src="/img/WebAPIs/day07/clip_image012.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l 比如：</p>
+<p><img src="/img/WebAPIs/day07/clip_image014.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l 如果正则表达式与指定的字符串匹配 ，返回 true，否则 false</p>
+<p>\3. <strong>检索（查找）符合规则的字符串：</strong></p>
+<p>exec() 方法 在一个指定字符串中执行一个搜索匹配,如果有则返回该数值</p>
+<p>l 语法：</p>
+<p><img src="/img/WebAPIs/day07/clip_image016.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l 比如：</p>
+<p><img src="/img/WebAPIs/day07/clip_image018.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>如果匹配成功，exec() 方法返回一个数组，否则返回 null</p>
+<h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><p>l <strong>普通字符:</strong></p>
+<p>大多数的字符仅能够描述它们本身，这些字符称作普通字符，例如所有的字母和数字。</p>
+<p>也就是说普通字符只能够匹配字符串中与它们相同的字符。</p>
+<p>l <strong>元字符(特殊字符）</strong></p>
+<p>是一些具有特殊含义的字符，可以极大提高了灵活性和强大的匹配功能。</p>
+<p>n 比如，规定用户只能输入英文 26 个英文字母，普通字符的话 abcdefghijklm…..</p>
+<p>n 但是换成元字符写法： [a-z]</p>
+<p>l <strong>参考文档：</strong></p>
+<p>n MDN：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions</a></p>
+<p>n 正则测试工具: <a target="_blank" rel="noopener" href="http://tool.oschina.net/regex">http://tool.oschina.net/regex</a></p>
+<p>l 为了方便记忆和学习，我们对众多的元字符进行了分类：</p>
+<p>\1. 边界符（表示位置，开头和结尾，必须用什么开头，用什么结尾）</p>
+<p>\2. 量词 （表示重复次数）</p>
+<p>\3. 字符类 （比如 \d 表示 0~9）</p>
+<h4 id="边界符"><a href="#边界符" class="headerlink" title="边界符"></a>边界符</h4><p>正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符</p>
+<p><img src="/img/WebAPIs/day07/clip_image020.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>如果 ^ 和 $ 在一起，表示必须是精确匹配，即后面和前面相等。</p>
+<p><img src="/img/WebAPIs/day07/clip_image022.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h4 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h4><p>老师，你说的把这些知识点完全搞懂是指能够背出来的那种吗</p>
+<p>量词用来 设定某个模式出现的次数，放在要重复的那个字符后面，并且只管自己前面一位的字符，</p>
+<p><img src="/img/WebAPIs/day07/clip_image024.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><strong>注意： 逗号左右两侧千万不要出现空格</strong></p>
+<p><img src="/img/WebAPIs/day07/clip_image026.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><img src="/img/WebAPIs/day07/clip_image028.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><img src="/img/WebAPIs/day07/clip_image030.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><p><img src="/img/WebAPIs/day07/clip_image032.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h4 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h4><p>[ ]代表单个字符</p>
+<h5 id="匹配字符集合"><a href="#匹配字符集合" class="headerlink" title="[ ] 匹配字符集合"></a>[ ] 匹配字符集合</h5><p>l 后面的字符串只要包含 abc 中任意一个字符，都返回 true 。</p>
+<p><img src="/img/WebAPIs/day07/clip_image034.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><img src="/img/WebAPIs/day07/clip_image036.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>在前后加上^和$会使后面的字符串开头和结尾只能是 abc 中其中一个，并且要相同</p>
+<h5 id="里面加上-连字符"><a href="#里面加上-连字符" class="headerlink" title="[ ] 里面加上 - 连字符"></a>[ ] 里面加上 - 连字符</h5><p>l 使用连字符 - 表示一个范围</p>
+<p><img src="/img/WebAPIs/day07/clip_image038.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><img src="/img/WebAPIs/day07/clip_image040.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l 比如：</p>
+<p>n [a-z] 表示 a 到 z 26 个英文字母都可以</p>
+<p>n [a-zA-Z] 表示大小写都可以</p>
+<p>n [0-9] 表示 0~9 的数字都可以</p>
+<p>n 单-减号或者单_下划线</p>
+<p>认识下：</p>
+<p><img src="/img/WebAPIs/day07/clip_image042.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h5 id="里面加上-取反符号"><a href="#里面加上-取反符号" class="headerlink" title="[ ] 里面加上 ^ 取反符号"></a>[ ] 里面加上 ^ 取反符号</h5><p>l 比如：</p>
+<p>n [^a-z] 匹配除了小写字母以外的字符</p>
+<p>n 注意要写到中括号里面</p>
+<h5 id="匹配除换行符之外的任何单个字符"><a href="#匹配除换行符之外的任何单个字符" class="headerlink" title=". 匹配除换行符之外的任何单个字符"></a>. 匹配除换行符之外的任何单个字符</h5><h5 id="预定义：指的是某些常见模式的简写方式。"><a href="#预定义：指的是某些常见模式的简写方式。" class="headerlink" title="预定义：指的是某些常见模式的简写方式。"></a>预定义：指的是某些常见模式的简写方式。</h5><p><img src="/img/WebAPIs/day07/clip_image044.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><img src="/img/WebAPIs/day07/clip_image046.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>修饰符约束正则执行的某些细节行为，如是否区分大小写、是否支持多行匹配等</p>
+<p><strong>语法：</strong></p>
+<p><img src="/img/WebAPIs/day07/clip_image048.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>l i 是单词 ignore 的缩写，正则匹配时字母不区分大小写</p>
+<p>l g 是单词 global 的缩写，匹配所有满足正则表达式的结果</p>
+<p><img src="/img/WebAPIs/day07/clip_image050.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h4 id="替换-replace-替换"><a href="#替换-replace-替换" class="headerlink" title="替换 replace 替换"></a>替换 replace 替换</h4><p><strong>语法：</strong></p>
+<p><img src="/img/WebAPIs/day07/clip_image052.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>若要替换多个元素，则使用或号隔开</p>
+<p><img src="/img/WebAPIs/day07/clip_image054.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h1 id="正则案例"><a href="#正则案例" class="headerlink" title="正则案例"></a>正则案例</h1><h2 id="小兔鲜注册模块"><a href="#小兔鲜注册模块" class="headerlink" title="小兔鲜注册模块"></a>小兔鲜注册模块</h2><p>不同模块之间，比如（表单验证，提交）等模块可用立即执行函数分别封装</p>
+<p><img src="/img/WebAPIs/day07/clip_image056.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h2 id="小兔鲜登录模块"><a href="#小兔鲜登录模块" class="headerlink" title="小兔鲜登录模块"></a>小兔鲜登录模块</h2><p>input 标签中添加 required 属性可自动帮忙识别框内是否输入字符，不能为空</p>
+<p><img src="/img/WebAPIs/day07/clip_image058.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h1 id="触屏事件"><a href="#触屏事件" class="headerlink" title="触屏事件"></a>触屏事件</h1><p>常见的触屏事件如下：</p>
+<p><img src="/img/WebAPIs/day07/clip_image060.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h3 id="触摸事件对象（TouchEvent）"><a href="#触摸事件对象（TouchEvent）" class="headerlink" title="触摸事件对象（TouchEvent）"></a>触摸事件对象（TouchEvent）</h3><p>TouchEvent 是一类描述手指在触摸平面（触摸屏、触摸板等）的状态变化的事件。这类事件用于描述一个或多个触点，使开发者可以检测触点的移动，触点的增加和减少，等等</p>
+<p><img src="/img/WebAPIs/day07/clip_image062.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>触摸事件对象重点我们看三个常见对象列表：</p>
+<p><img src="/img/WebAPIs/day07/clip_image064.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><strong>因为平时我们都是给元素注册触摸事件，所以重点记住 targetTocuhes</strong></p>
+<h3 id="移动端拖动元素"><a href="#移动端拖动元素" class="headerlink" title="移动端拖动元素"></a>移动端拖动元素</h3><p>\1. touchstart、touchmove、touchend 可以实现拖动元素</p>
+<p>\2. 但是拖动元素需要当前手指的坐标值 我们可以使用 targetTouches[0] 里面的 pageX 和 pageY</p>
+<p>\3. 移动端拖动的原理： 手指移动中，计算出手指移动的距离。然后用盒子原来的位置 + 手指移动的距离</p>
+<p>\4. 手指移动的距离： 手指滑动中的位置 减去 手指刚开始触摸的位置</p>
+<p>拖动元素三步曲：</p>
+<p>（1） 触摸元素 touchstart： 获取手指初始坐标，同时获得盒子原来的位置</p>
+<p>（2） 移动手指 touchmove： 计算手指的滑动距离，并且移动盒子</p>
+<p>（3） 离开手指 touchend:</p>
+<p><strong>注意： 手指移动也会触发滚动屏幕所以这里要阻止默认的屏幕滚动 e.preventDefault();</strong></p>
+<p>&#x2F;&#x2F; （1） 触摸元素 touchstart： 获取手指初始坐标，同时获得盒子原来的位置</p>
+<p>​ &#x2F;&#x2F; （2） 移动手指 touchmove： 计算手指的滑动距离，并且移动盒子</p>
+<p>​ &#x2F;&#x2F; （3） 离开手指 touchend:</p>
+<p>​ var div &#x3D; document.querySelector(‘div’)</p>
+<p>​ var startX &#x3D; 0 &#x2F;&#x2F;获取手指初始坐标</p>
+<p>​ var startY &#x3D; 0</p>
+<p>​ var x &#x3D; 0 &#x2F;&#x2F;获得盒子原来的位置</p>
+<p>​ var y &#x3D; 0</p>
+<p>​ div.addEventListener(‘touchstart’, function (e) {</p>
+<p>​ &#x2F;&#x2F; 获取手指初始坐标</p>
+<p>​ startX &#x3D; e.targetTouches[0].pageX</p>
+<p>​ startY &#x3D; e.targetTouches[0].pageY</p>
+<p>​ x &#x3D; this.offsetLeft</p>
+<p>​ y &#x3D; this.offsetTop</p>
+<p>​ })</p>
+<p>​ div.addEventListener(‘touchmove’, function (e) {</p>
+<p>​ &#x2F;&#x2F; 计算手指的移动距离： 手指移动之后的坐标减去手指初始的坐标</p>
+<p>​ var moveX &#x3D; e.targetTouches[0].pageX - startX</p>
+<p>​ var moveY &#x3D; e.targetTouches[0].pageY - startY</p>
+<p>​ &#x2F;&#x2F; 移动我们的盒子 盒子原来的位置 + 手指移动的距离</p>
+<p>​ this.style.left &#x3D; x + moveX + ‘px’</p>
+<p>​ this.style.top &#x3D; y + moveY + ‘px’</p>
+<p>​ e.preventDefault() &#x2F;&#x2F; 阻止屏幕滚动的默认行为</p>
+<p>​ })</p>
+<h1 id="移动端常见特效"><a href="#移动端常见特效" class="headerlink" title="移动端常见特效"></a>移动端常见特效</h1><h3 id="案例-移动轮播图"><a href="#案例-移动轮播图" class="headerlink" title="案例: 移动轮播图"></a>案例: 移动轮播图</h3><p>移动端轮播图功能和基本 PC 端一致。</p>
+<p>\1. 可以自动播放图片</p>
+<p>\2. 手指可以拖动播放轮播图</p>
+<h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析:"></a>案例分析:</h3><p>\1. 自动播放功能</p>
+<p>\2. 开启定时器</p>
+<p>\3. 移动端移动，可以使用 translate 移动</p>
+<p>\4. 想要图片优雅的移动，请添加过渡效果</p>
+<p><img src="/img/WebAPIs/day07/clip_image066.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>\1. 自动播放功能-无缝滚动</p>
+<p>\2. 注意，我们判断条件是要等到图片滚动完毕再去判断，就是过渡完成后判断</p>
+<p>\3. 此时需要添加检测过渡完成事件 transitionend</p>
+<p>\4. 判断条件：如果索引号等于 3 说明走到最后一张图片，此时 索引号要复原为 0</p>
+<p>\5. 此时图片，去掉过渡效果，然后移动</p>
+<p>\6. 如果索引号小于 0， 说明是倒着走， 索引号等于 2</p>
+<p>\7. 此时图片，去掉过渡效果，然后移动</p>
+<p><img src="/img/WebAPIs/day07/clip_image068.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h1 id="click-延时解决方案"><a href="#click-延时解决方案" class="headerlink" title="click 延时解决方案"></a>click 延时解决方案</h1><p>移动端 click 事件会有 300ms 的延时，原因是移动端屏幕双击会缩放(double tap to zoom) 页面。</p>
+<p>解决方案：</p>
+<p>\1. 禁用缩放。 浏览器禁用默认的双击缩放行为并且去掉 300ms 的点击延迟。</p>
+<meta name="viewport"
+content="user-scalable=no">
+
+<p>2.利用 touch 事件自己封装这个事件解决 300ms 延迟。</p>
+<p>原理就是：</p>
+<p>\1. 当我们手指触摸屏幕，记录当前触摸时间</p>
+<p>\2. 当我们手指离开屏幕， 用离开的时间减去触摸的时间</p>
+<p>\3. 如果时间小于 150ms，并且没有滑动过屏幕， 那么我们就定义为点击</p>
+<p>代码如下:</p>
+<p>&#x2F;&#x2F;封装 tap，解决 click 300ms 延时</p>
+<p>function tap (obj, callback) {</p>
+<p>​ var isMove &#x3D; false;</p>
+<p>​ var startTime &#x3D; 0; &#x2F;&#x2F; 记录触摸时候的时间变量</p>
+<p>​ obj.addEventListener(‘touchstart’, function (e) {</p>
+<p>​ startTime &#x3D; Date.now(); &#x2F;&#x2F; 记录触摸时间</p>
+<p>​ });</p>
+<p>​ obj.addEventListener(‘touchmove’, function (e) {</p>
+<p>​ isMove &#x3D; true; &#x2F;&#x2F; 看看是否有滑动，有滑动算拖拽，不算点击</p>
+<p>​ });</p>
+<p>​ obj.addEventListener(‘touchend’, function (e) {</p>
+<p>​ if (!isMove &amp;&amp; (Date.now() - startTime) &lt; 150) { &#x2F;&#x2F; 如果手指触摸和离开时间小于 150ms 算点击</p>
+<p>​ callback &amp;&amp; callback(); &#x2F;&#x2F; 执行回调函数</p>
+<p>​ }</p>
+<p>​ isMove &#x3D; false; &#x2F;&#x2F; 取反 重置</p>
+<p>​ startTime &#x3D; 0;</p>
+<p>​ });</p>
+<p>}</p>
+<p>&#x2F;&#x2F;调用</p>
+<p>tap(div, function(){ &#x2F;&#x2F; 执行代码 });</p>
+<h1 id="动画函数封装"><a href="#动画函数封装" class="headerlink" title="动画函数封装"></a>动画函数封装</h1><p>核心原理：通过定时器 setInterval() 不断移动盒子位置。</p>
+<p>实现步骤：</p>
+<p>\1. 获得盒子当前位置</p>
+<p>\2. 让盒子在当前位置加上 1 个移动距离</p>
+<p>\3. 利用定时器不断重复这个操作</p>
+<p>\4. 加一个结束定时器的条件</p>
+<p>\5. 注意此元素需要添加定位，才能使用 element.style.left</p>
+<h3 id="1-6-2-动画函数给不同元素记录不同定时器"><a href="#1-6-2-动画函数给不同元素记录不同定时器" class="headerlink" title="1.6.2. 动画函数给不同元素记录不同定时器"></a>1.6.2. 动画函数给不同元素记录不同定时器</h3><p>如果多个元素都使用这个动画函数，每次都要 var 声明定时器。我们可以给不同的元素使用不同的定时器（自己专门用自己的定时器）。</p>
+<p>核心原理：利用 JS 是一门动态语言，可以很方便的给当前对象添加属性。</p>
+<p>function animate(obj, target) {</p>
+<p>​ &#x2F;&#x2F; 当我们不断的点击按钮，这个元素的速度会越来越快，因为开启了太多的定时器</p>
+<p>​ &#x2F;&#x2F; 解决方案就是 让我们元素只有一个定时器执行</p>
+<p>​ &#x2F;&#x2F; 先清除以前的定时器，只保留当前的一个定时器执行</p>
+<p>​ clearInterval(obj.timer);</p>
+<p>​ obj.timer &#x3D; setInterval(function() {</p>
+<p>​ if (obj.offsetLeft &gt;&#x3D; target) {</p>
+<p>​ &#x2F;&#x2F; 停止动画 本质是停止定时器</p>
+<p>​ clearInterval(obj.timer);</p>
+<p>​ }</p>
+<p>​ obj.style.left &#x3D; obj.offsetLeft + 1 + ‘px’;</p>
+<p>​ }, 30);</p>
+<p>​ }</p>
+<h2 id="缓动效果原理"><a href="#缓动效果原理" class="headerlink" title="缓动效果原理"></a>缓动效果原理</h2><p>缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来</p>
+<p>思路：</p>
+<p>\1. 让盒子每次移动的距离慢慢变小，速度就会慢慢落下来。</p>
+<p>\2. <strong>核心算法： (目标值 - 现在的位置) &#x2F; 10 做为每次移动的距离步长</strong></p>
+<p>\3. 停止的条件是： 让当前盒子位置等于目标位置就停止定时器</p>
+<p>\4. 注意步长值需要取整</p>
+<h2 id="动画函数多个目标值之间移动"><a href="#动画函数多个目标值之间移动" class="headerlink" title="动画函数多个目标值之间移动"></a>动画函数多个目标值之间移动</h2><p>可以让动画函数从 800 移动到 500。</p>
+<p>当我们点击按钮时候，判断步长是正值还是负值</p>
+<p>1.如果是正值，则步长往大了取整</p>
+<p>2.如果是负值，则步长 向小了取整</p>
+<h2 id="动函数添加回调函数"><a href="#动函数添加回调函数" class="headerlink" title="动函数添加回调函数"></a>动函数添加回调函数</h2><p>回调函数原理：函数可以作为一个参数。将这个函数作为参数传到另一个函数里面，当那个函数执行完之后，再执行传进去的这个函数，这个过程就叫做回调。</p>
+<p>1.声明回调函数 callback</p>
+<p><img src="/img/WebAPIs/day07/clip_image070.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>2.将函数作为参数返回给 callback</p>
+<p><img src="/img/WebAPIs/day07/clip_image072.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>\3. 符合条件调用函数（调用函数有两种写法）</p>
+<p><img src="/img/WebAPIs/day07/clip_image074.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p>回调函数写的位置：定时器结束的位置。</p>
+<h2 id="动画完整版代码"><a href="#动画完整版代码" class="headerlink" title="动画完整版代码:"></a>动画完整版代码:</h2><p>function animate(obj, target, callback) {</p>
+<p>​ &#x2F;&#x2F; console.log(callback); callback &#x3D; function() {} 调用的时候 callback()</p>
+<p>​ &#x2F;&#x2F; 先清除以前的定时器，只保留当前的一个定时器执行</p>
+<p>​ clearInterval(obj.timer);</p>
+<p>​ obj.timer &#x3D; setInterval(function() {</p>
+<p>​ &#x2F;&#x2F; 步长值写到定时器的里面</p>
+<p>​ &#x2F;&#x2F; 把我们步长值改为整数 不要出现小数的问题</p>
+<p>​ &#x2F;&#x2F; var step &#x3D; Math.ceil((target - obj.offsetLeft) &#x2F; 10);</p>
+<p>​ var step &#x3D; (target - obj.offsetLeft) &#x2F; 10;</p>
+<p>​ step &#x3D; step &gt; 0 ? Math.ceil(step) : Math.floor(step);</p>
+<p>​ if (obj.offsetLeft &#x3D;&#x3D; target) {</p>
+<p>​ &#x2F;&#x2F; 停止动画 本质是停止定时器</p>
+<p>​ clearInterval(obj.timer);</p>
+<p>​ &#x2F;&#x2F; 回调函数写到定时器结束里面</p>
+<p>​ &#x2F;&#x2F; if (callback) {</p>
+<p>​ &#x2F;&#x2F; &#x2F;&#x2F; 调用函数</p>
+<p>​ &#x2F;&#x2F; callback();</p>
+<p>​ &#x2F;&#x2F; }</p>
+<p>​ callback &amp;&amp; callback();</p>
+<p>​ }</p>
+<p>​ &#x2F;&#x2F; 把每次加 1 这个步长值改为一个慢慢变小的值 步长公式：(目标值 - 现在的位置) &#x2F; 10</p>
+<p>​ obj.style.left &#x3D; obj.offsetLeft + step + ‘px’;</p>
+<p>​ }, 15);</p>
+<p>}</p>
+<p>​ &#x2F;&#x2F; 回调函数用法</p>
+<p>​ var span &#x3D; document.querySelector(‘span’)</p>
+<p>​ var btn500 &#x3D; document.querySelector(‘.btn500’)</p>
+<p>​ var btn800 &#x3D; document.querySelector(‘.btn800’)</p>
+<p>​ btn500.addEventListener(‘click’, function () {</p>
+<p>​ &#x2F;&#x2F; 调用函数</p>
+<p>​ animate(span, 500)</p>
+<p>​ })</p>
+<p>​ btn800.addEventListener(‘click’, function () {</p>
+<p>​ &#x2F;&#x2F; 调用函数</p>
+<p>​ animate(span, 800, function () {</p>
+<p>​ &#x2F;&#x2F; alert(‘你好吗’);</p>
+<p>​ span.style.backgroundColor &#x3D; ‘red’</p>
+<p>​ })</p>
+<p>​ })</p>
+<h2 id="节流阀"><a href="#节流阀" class="headerlink" title="节流阀"></a>节流阀</h2><p>防止轮播图按钮连续点击造成播放过快。</p>
+<p>节流阀目的：当上一个函数动画内容执行完毕，再去执行下一个函数动画，让事件无法连续触发。</p>
+<p>核心实现思路：利用动画回调函数，添加一个变量来控制，锁住函数和解锁函数。</p>
+<p>开始设置一个变量 var flag&#x3D; true;</p>
+<p>If(flag){flag &#x3D; false; do something} 关闭水龙头</p>
+<p>利用回调函数动画执行完毕， flag &#x3D; true 打开水龙头</p>
+<p><img src="/img/WebAPIs/day07/clip_image076.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<p><img src="/img/WebAPIs/day07/clip_image078.gif" srcset="/img/loading.gif" lazyload alt="截图.png"></p>
+<h2 id="案例：返回顶部"><a href="#案例：返回顶部" class="headerlink" title="案例：返回顶部"></a>案例：返回顶部</h2><p>\1. 带有动画的返回顶部</p>
+<p>\2. 此时可以继续使用我们封装的动画函数</p>
+<p>\3. 只需要把所有的 left 相关的值改为 跟 页面垂直滚动距离相关就可以了</p>
+<p>\4. 页面滚动了多少，可以通过 window.pageYOffset 得到</p>
+<p>\5. 最后是页面滚动，使用 window.scroll(x,y)</p>
+<h2 id="淘宝-flexible-js-源码分析"><a href="#淘宝-flexible-js-源码分析" class="headerlink" title="淘宝 flexible.js 源码分析"></a>淘宝 flexible.js 源码分析</h2><p>立即执行函数 (function(){})() 或者 (function(){}())</p>
+<p>主要作用： 创建一个独立的作用域。 避免了命名冲突问题</p>
+<p>下面三种情况都会刷新页面都会触发 load 事件。</p>
+<p>1.a 标签的超链接</p>
+<p>2.F5 或者刷新按钮（强制刷新）</p>
+<p>3.前进后退按钮</p>
+<p>但是 火狐中，有个特点，有个“往返缓存”，这个缓存中不仅保存着页面数据，还保存了 DOM 和 JavaScript 的状态；实际上是将整个页面都保存在了内存里。</p>
+<p>所以此时后退按钮不能刷新页面。</p>
+<p>此时可以使用 pageshow 事件来触发。，这个事件在页面显示时触发，无论页面是否来自缓存。在重新加载页面中，pageshow 会在 load 事件触发后触发；根据事件对象中的 persisted 来判断是否是缓存中的页面触发的 pageshow 事件</p>
+<p>注意这个事件给 window 添加。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WebAPIs/" class="category-chain-item">WebAPIs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Day07</div>
+      <div>https://hansomewang666.github.io/2022/05/05/WebAPIs/day07/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wmr</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/05/WebAPIs/day04/" title="Day04">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Day04</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/05/WebAPIs/day01/" title="Day01">
+                        <span class="hidden-mobile">Day01</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

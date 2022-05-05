@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wmr">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 构造函数和原型1.1 概述在典型的 OOP 的语言中（如 Java），都存在类的概念，类就是对象的模板，对象就是类的实例，但在 ES6 之前， JS 中并没用引入类的概念。 ES6， 全称 ECMAScript 6.0 ，2015.06 发版。但是目前浏览器的 JavaScript 是 ES5 版本，大多数高版本的浏览器也支持 ES6，不过只实现了 ES6 的部分特性和功能。 在 ES6 之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day02 构造函数和原型">
+<meta property="og:url" content="https://hansomewang666.github.io/2022/05/05/JS%E9%AB%98%E7%BA%A7/day02/1.%20%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Wmr&#39;s Blog">
+<meta property="og:description" content="1. 构造函数和原型1.1 概述在典型的 OOP 的语言中（如 Java），都存在类的概念，类就是对象的模板，对象就是类的实例，但在 ES6 之前， JS 中并没用引入类的概念。 ES6， 全称 ECMAScript 6.0 ，2015.06 发版。但是目前浏览器的 JavaScript 是 ES5 版本，大多数高版本的浏览器也支持 ES6，不过只实现了 ES6 的部分特性和功能。 在 ES6 之">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image002.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image004.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image006.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image008.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image010.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image012.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image014.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image016.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image018.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image020.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image022.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image024.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image026.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image028.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image030.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image032.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image034.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image036.gif">
+<meta property="og:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image038.gif">
+<meta property="article:published_time" content="2022-05-05T02:43:13.000Z">
+<meta property="article:modified_time" content="2022-05-05T07:01:01.807Z">
+<meta property="article:author" content="Wmr">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hansomewang666.github.io/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image002.gif">
+  
+  
+  <title>Day02 构造函数和原型 - Wmr&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wmr&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/nidemingzi.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Day02 构造函数和原型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-05 10:43" pubdate>
+          2022年5月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Day02 构造函数和原型</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="1-构造函数和原型"><a href="#1-构造函数和原型" class="headerlink" title="1. 构造函数和原型"></a>1. 构造函数和原型</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>在典型的 OOP 的语言中（如 Java），都存在类的概念，类就是对象的模板，对象就是类的实例，但在 ES6 之前， JS 中并没用引入类的概念。</p>
+<p>ES6， 全称 ECMAScript 6.0 ，2015.06 发版。但是目前浏览器的 JavaScript 是 ES5 版本，大多数高版本的浏览器也支持 ES6，不过只实现了 ES6 的部分特性和功能。</p>
+<p>在 ES6 之前 ，对象不是基于类创建的，而是用一种称为构建函数的特殊函数来定义对象和它们的特征。</p>
+<p><strong>创建对象可以通过以下三种方式：</strong></p>
+<p>\1. 对象字面量</p>
+<p>\2. new Object()</p>
+<p>\3. 自定义构造函数</p>
+<h2 id="1-2-构造函数"><a href="#1-2-构造函数" class="headerlink" title="1.2 构造函数"></a>1.2 构造函数</h2><p><strong>构造函数</strong>是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，它总与 new 一起使用。我们可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。</p>
+<p>在 JS 中，使用构造函数时要注意以下两点：</p>
+<p>1.构造函数用于创建某一类对象，其首字母要大写</p>
+<p>2.构造函数要和 new 一起使用才有意义，但不是必须搭配 new</p>
+<p><strong>new</strong> <strong>在执行时会做四件事情：</strong></p>
+<p>① 在内存中创建一个新的空对象。</p>
+<p>② 让 this 指向这个新的对象。</p>
+<p>③ 执行构造函数里面的代码，给这个新对象添加属性和方法。</p>
+<p>④ 返回这个新对象（所以构造函数里面不需要 return ）。</p>
+<p>JavaScript 的构造函数中可以添加一些成员，可以在构造函数本身上添加，也可以在构造函数内部的 this 上添加。通过这两种方式添加的成员，就分别称为静态成员和实例成员。</p>
+<p>l <strong>静态成员：</strong>在构造函数本上添加的成员称为静态成员，只能由构造函数本身来访问</p>
+<p>l <strong>实例成员：</strong>在构造函数内部创建的对象成员称为实例成员，只能由实例化的对象来访问</p>
+<h2 id="1-3-构造函数的问题"><a href="#1-3-构造函数的问题" class="headerlink" title="1.3 构造函数的问题"></a>1.3 构造函数的问题</h2><p>构造函数方法很好用，但是存在浪费内存的问题。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image002.gif" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image004.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-4-构造函数原型-prototype"><a href="#1-4-构造函数原型-prototype" class="headerlink" title="1.4 构造函数原型 prototype"></a>1.4 构造函数原型 prototype</h2><p>原型也是一个对象，我们也称为 prototype 为原型对象。其作用是共享所有对象共有的<strong>方法</strong>。</p>
+<p>构造函数通过原型分配的函数是所有对象所<strong>共享的</strong>。</p>
+<p>JavaScript 规定，每一个构造函数都有一个 prototype 属性，指向另一个对象。注意这个 prototype 就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。</p>
+<p>我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。</p>
+<h2 id="1-5-对象原型-proto"><a href="#1-5-对象原型-proto" class="headerlink" title="1.5 对象原型 proto"></a>1.5 对象原型 <strong>proto</strong></h2><p>原型都会指向原型对象</p>
+<p>对象都会有一个属性 <strong>proto</strong>指向构造函数的 prototype 原型对象，之所以我们对象可以使用构造函数 prototype 原型对象的属性和方法，就是因为对象有<strong>proto</strong>原型的存在。</p>
+<p>方法查找规则：首先看实例对象身上有没有 sing 方法，有的话执行这个对象上的 sing，没有的话，会由<em>proto</em>指向 prototype,从而去 prototype 找 sing</p>
+<p>l <strong>proto</strong>对象原型和原型对象 prototype 是等价的</p>
+<p>l <strong>proto</strong>对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象 prototype</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image006.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-6-constructor-构造函数"><a href="#1-6-constructor-构造函数" class="headerlink" title="1.6 constructor 构造函数"></a>1.6 constructor 构造函数</h2><p>对象原型（ <strong>proto</strong>）和构造函数（prototype）原型对象里面都有一个属性 constructor 属性 ，constructor 我们称为构造函数，因为它指回构造函数本身。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image008.gif" srcset="/img/loading.gif" lazyload></p>
+<p>constructor 主要用于记录该对象引用于哪个构造函数，它可以让原型对象重新指向原来的构造函数。</p>
+<p>一般情况下，对象的方法都在构造函数的原型对象中设置。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image010.gif" srcset="/img/loading.gif" lazyload></p>
+<p>如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image012.gif" srcset="/img/loading.gif" lazyload></p>
+<p>但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor 就不再指向当前构造函数了。</p>
+<p>此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image014.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-7-构造函数、实例、原型对象三者之间的关系"><a href="#1-7-构造函数、实例、原型对象三者之间的关系" class="headerlink" title="1.7 构造函数、实例、原型对象三者之间的关系"></a>1.7 构造函数、实例、原型对象三者之间的关系</h2><p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image016.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-8-原型链"><a href="#1-8-原型链" class="headerlink" title="1.8 原型链"></a>1.8 原型链</h2><p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image018.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="1-9-JavaScript-的成员查找机制-就近原则"><a href="#1-9-JavaScript-的成员查找机制-就近原则" class="headerlink" title="1.9 JavaScript 的成员查找机制(就近原则)"></a>1.9 JavaScript 的成员查找机制(就近原则)</h2><p>① 当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性。</p>
+<p>② 如果没有就查找它的原型（也就是<strong>proto</strong>指向的 prototype 原型对象）。</p>
+<p>③ 如果还没有就查找原型对象的原型（Object 的原型对象）。</p>
+<p>④ 依此类推一直找到 Object 为止（null）。</p>
+<p>⑤ <strong>proto</strong>对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线。</p>
+<h2 id="1-10-原型对象-this-指向"><a href="#1-10-原型对象-this-指向" class="headerlink" title="1.10 原型对象 this 指向"></a>1.10 原型对象 this 指向</h2><p>构造函数中的 this 指向我们实例对象.</p>
+<p>原型对象里面放的是方法, 这个方法里面的 this 指向的是这个方法的调用者, 也就是这个实例对象.</p>
+<h2 id="1-11-扩展内置对象"><a href="#1-11-扩展内置对象" class="headerlink" title="1.11 扩展内置对象"></a>1.11 扩展内置对象</h2><p>可以通过原型对象，对原来的内置对象进行扩展自定义的方法。比如给数组增加自定义求和的功能。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image020.gif" srcset="/img/loading.gif" lazyload></p>
+<p>注意：数组和字符串内置对象不能给原型对象覆盖操作 Array.prototype &#x3D; {} (用赋值形式会覆盖原来的对象原型只能用点 xxx 的形式)，只能是 Array.prototype.xxx &#x3D;function(){} 的方式。</p>
+<h1 id="2-继承"><a href="#2-继承" class="headerlink" title="2. 继承"></a>2. 继承</h1><p>ES6 之前并没有给我们提供 extends 继承。我们可以通过构造函数+原型对象模拟实现继承，被称为组合继承。</p>
+<h2 id="2-1-call"><a href="#2-1-call" class="headerlink" title="2.1 call()"></a>2.1 call()</h2><p>调用这个函数, 并且修改函数运行时的 this 指向</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image022.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l thisArg：当前调用函数 this 的指向对象</p>
+<p>l arg1，arg2：传递的其他参数</p>
+<h2 id="2-2-借用构造函数继承父类型属性"><a href="#2-2-借用构造函数继承父类型属性" class="headerlink" title="2.2 借用构造函数继承父类型属性"></a>2.2 借用构造函数继承父类型属性</h2><p>核心原理： 通过 call() 把父类型的 this 指向子类型的 this ，这样就可以实现子类型继承父类型的属性。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image024.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2-3-借用原型对象继承父类型方法"><a href="#2-3-借用原型对象继承父类型方法" class="headerlink" title="2.3 借用原型对象继承父类型方法"></a>2.3 借用原型对象继承父类型方法</h2><p>一般情况下，对象的方法都在构造函数的原型对象中设置，通过构造函数无法继承父类方法。</p>
+<p>核心原理：</p>
+<p>① 将子类所共享的方法提取出来，让子类的 prototype 原型对象 &#x3D; new 父类()</p>
+<p>② 本质：子类原型对象等于是实例化父类，因为父类实例化之后另外开辟空间，就不会影响原来父类原型对象</p>
+<p>③ 将子类的 constructor 从新指向子类的构造函数(Son 原型对象被 father 实例对象覆盖，因此 constructor 指向了父亲，需要重新指向 son)</p>
+<h1 id="3-类的本质"><a href="#3-类的本质" class="headerlink" title="3. 类的本质"></a>3. 类的本质</h1><p>\1. class 本质还是 function.</p>
+<p>\2. 类的所有方法都定义在类的 prototype 属性上</p>
+<p>\3. 类创建的实例,里面也有<strong>proto</strong> 指向类的 prototype 原型对象</p>
+<p>\4. 所以 ES6 的类它的绝大部分功能，ES5 都可以做到，新的 class 写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。</p>
+<p>\5. 所以 ES6 的类其实就是语法糖.</p>
+<p>\6. 语法糖:语法糖就是一种便捷写法. 简单理解, 有两种方法可以实现同样的功能, 但是一种写法更加清晰、方便,那么这个方法就是语法糖</p>
+<h1 id="4-ES5-中的新增方法"><a href="#4-ES5-中的新增方法" class="headerlink" title="4. ES5 中的新增方法"></a>4. ES5 中的新增方法</h1><h2 id="4-1-ES5-新增方法概述"><a href="#4-1-ES5-新增方法概述" class="headerlink" title="4.1 ES5 新增方法概述"></a>4.1 ES5 新增方法概述</h2><p>ES5 中给我们新增了一些方法，可以很方便的操作数组或者字符串，这些方法主要包括：</p>
+<p>l 数组方法</p>
+<p>l 字符串方法</p>
+<p>l 对象方法</p>
+<h2 id="4-2-数组方法"><a href="#4-2-数组方法" class="headerlink" title="4.2 数组方法"></a>4.2 数组方法</h2><p>迭代(遍历)方法：forEach()、map()、filter()、some()、every()；</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image026.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l forEach()里面使用 return 不会终止迭代函数</p>
+<p>l some() 里面遇到 return true 时，会终止迭代，效率更高</p>
+<p>l currentValue：数组当前项的值</p>
+<p>l index：数组当前项的索引</p>
+<p>l arr：数组对象本身</p>
+<p>l filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素,主要用于筛选数组</p>
+<p>n <strong>注意：它直接返回一个新数组</strong></p>
+<p>l **some()****方法用于检测数组中的元素是否满足指定条件，注意它返回的是布尔值，如果查找到这个元素，就返回 true,否则 false**</p>
+<p>l currentValue: 数组当前项的值</p>
+<p>l index：数组当前项的索引</p>
+<p>l arr：数组对象本身</p>
+<h2 id="4-3-字符串方法"><a href="#4-3-字符串方法" class="headerlink" title="4.3 字符串方法"></a>4.3 字符串方法</h2><p>trim() 方法会从一个字符串的两端删除空白字符。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image028.gif" srcset="/img/loading.gif" lazyload></p>
+<p>trim() 方法并不影响原字符串本身，它返回的是一个新的字符串。</p>
+<h2 id="4-4-对象方法"><a href="#4-4-对象方法" class="headerlink" title="4.4 对象方法"></a>4.4 对象方法</h2><p>\1. Object.keys() 用于获取对象自身所有的属性名</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image030.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l 效果类似 for…in</p>
+<p>l 返回一个由属性名组成的数组</p>
+<p>\2. Object.defineProperty() 定义新属性或修改原有的属性。</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image032.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l Object.defineProperty() 第三个参数 descriptor 说明： 以对象形式 { } 书写</p>
+<p>l value:设置属性的值 默认为 undefined</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image034.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l writable:值是否可以重写。true |false 默认为 false</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image036.gif" srcset="/img/loading.gif" lazyload></p>
+<p>l enumerable:目标属性是否可以被遍历（枚举）。true | false 默认为 false</p>
+<p>l configurable:目标属性是否可以被删除或是否可以再次修改特性 truefalse 默认为 false,同时也不能修改第三个参数里面的特性，（即不能用层叠的方法在下面再写一个 defineProperty,修改参数）</p>
+<p><img src="/img/JS%E9%AB%98%E7%BA%A7/day02/clip_image038.gif" srcset="/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" class="category-chain-item">JS高级</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Day02 构造函数和原型</div>
+      <div>https://hansomewang666.github.io/2022/05/05/JS高级/day02/1. 构造函数和原型/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wmr</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/05/Blog%E6%90%AD%E5%BB%BA/" title="blog搭建">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">blog搭建</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day04/2.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9C%A8%20JavaScript%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Day04 正则表达式">
+                        <span class="hidden-mobile">Day04 正则表达式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

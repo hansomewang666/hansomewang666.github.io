@@ -31,9 +31,12 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -42,24 +45,43 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hansomewang666.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+
+  
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>Wmr&#39;s Blog</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -138,6 +160,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -150,34 +173,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/vdysjx.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="To Be A Lean Developer!"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -191,24 +220,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/05/04/7.%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/" target="_self">
-          
+        <a href="/2022/05/05/Blog%E6%90%AD%E5%BB%BA/" target="_self">
+          blog搭建
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/05/04/7.%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/Blog%E6%90%AD%E5%BB%BA/" target="_self">
+        <div>
           
-          手写实现一个new 创建一个空的简单JavaScript对象（即{}）； 为步骤1新创建的对象添加属性__proto__，将该属性链接至构造函数的原型对象 ； 将步骤1新创建的对象作为this的上下文 ； 如果该函数没有返回对象，则返回this。   new关键词执行后总会返回一个对象, 要么是实例对象, 要么是return语句指定的对象.  123456789101112131415161718
-        </a>
-      </p>
+          1. 了解 NodeNode.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时, 它不是一门新的语言哈。 我们暂时不用太在意它的一些知识点，不需要现在学习。 目前只需要知道如何安装，然后如何使用一些简单的命令来实现我们现阶段想要做的功能。 1.1 安装 Node我们进入 Node 的官网 Node.js  如何安装 Node.js 查看安装好的版本  123node -v
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-04 11:16" pubdate>
-              2022-05-04
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
@@ -224,27 +253,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/05/04/%E5%8F%AF%E8%A7%86%E5%8C%96/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" target="_self">
-          
+        <a href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day02/1.%20%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/" target="_self">
+          Day02 构造函数和原型
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/05/04/%E5%8F%AF%E8%A7%86%E5%8C%96/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day02/1.%20%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/" target="_self">
+        <div>
           
-          DAY01-可视化项目01-项目介绍​	应对现在数据可视化的趋势，越来越多企业需要在很多场景(营销数据，生产数据，用户数据)下使用，可视化图表来展示体现数据，让数据更加直观，数据特点更加突出。我们引入 ‘立可得’ 数据可视化项目。 ​	该项目除了使用了基础的DIV+CSS布局，还引入了一些C3技术，还引入了各类图表的绘制，以及高级的地图数据可视化案例。主要功能有：饼状图、柱状图、线形图、地图 …
-        </a>
-      </p>
+          1. 构造函数和原型1.1 概述在典型的 OOP 的语言中（如 Java），都存在类的概念，类就是对象的模板，对象就是类的实例，但在 ES6 之前， JS 中并没用引入类的概念。 ES6， 全称 ECMAScript 6.0 ，2015.06 发版。但是目前浏览器的 JavaScript 是 ES5 版本，大多数高版本的浏览器也支持 ES6，不过只实现了 ES6 的部分特性和功能。 在 ES6 之
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-04 11:16" pubdate>
-              2022-05-04
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" class="category-chain-item">JS高级</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
         
         
       </div>
@@ -257,37 +307,49 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2015/07/09/js-module-7day/" target="_self">
-          Example Post using Keynote Layout
+        <a href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day04/2.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9C%A8%20JavaScript%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+          Day04 正则表达式
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2015/07/09/js-module-7day/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day04/2.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9C%A8%20JavaScript%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+        <div>
           
-          下滑这里查看更多内容  7月9日，我在公司内部进行了名为「JavaScript 模块化七日谈」分享，并将该 Slides 分享到了微博上。出乎意料地，这篇微博先后被 @JS小组 @尤小右 @寸志 等近 200 人转发，阅读达到 10w，获得了还不错的评价。 于是，我决定将它重新发到我的博客上，并为它专门制作了适用于 Keynote 展示文稿的新布局。它能自动根据屏幕大小&#x2F;旋转以一定比例
-        </a>
-      </p>
+          2. 正则表达式在 JavaScript 中的使用2.1 创建正则表达式在 JavaScript 中，可以通过两种方式创建一个正则表达式。 1. 通过调用 RegExp 对象的构造函数创建  2. 通过字面量创建  &#x2F;&#x2F; 注释中间放表达式就是正则字面量 3. 正则表达式中的特殊字符4. 正则表达式中的替换
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2015-07-09 00:00" pubdate>
-              2015-07-09
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
+  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" class="category-chain-item">JS高级</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
+        
         
       </div>
     </article>
@@ -299,39 +361,49 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2015/04/14/unix-linux-note/" target="_self">
-          Example Post With Default Header Image
+        <a href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day01/JavaScript%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
+          Day01 JavaScript 面向对象
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2015/04/14/unix-linux-note/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day01/JavaScript%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
+        <div>
           
-          This document is not completed and will be updated anytime.  Catagory Unix Bell Labs Xenix BSD FreeBSD &amp; Apple NeXTStep Darwin POSIX   Unix-like Single Unix Specification Apple iOS XNU Kernel   L
-        </a>
-      </p>
+          1. 面向对象编程介绍1.1 两大编程思想面向过程和面向对象 1.2 面向过程编程 POP(Process-oriented programming)面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。 例子：将大象装进冰箱，面向过程做法： 面向过程，就是按照我们分析好了的步骤，按照步骤解决问题。 1.3 面向对象编程 OOP(Obje
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2015-04-14 00:00" pubdate>
-              2015-04-14
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/OS/">OS</a>
-            
-              <a href="/tags/Unix/">Unix</a>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
+  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" class="category-chain-item">JS高级</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
+        
         
       </div>
     </article>
@@ -343,39 +415,49 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2014/09/22/js-version/" target="_self">
-          Example Post
+        <a href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day03/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" target="_self">
+          Day03 函数进阶
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2014/09/22/js-version/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day03/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" target="_self">
+        <div>
           
-          JavaScript 有着很奇怪的命名史。 1995 年，它作为网景浏览器（Netscape Navigator）的一部分首次发布，网景给这个新语言命名为 LiveScript。一年后，为了搭上当时媒体热炒 Java 的顺风车，临时改名为了 JavaScript （当然，Java 和 JavaScript 的关系，就和雷锋和雷锋塔一样 —— 并没有什么关系） 歪果仁的笑话怎么一点都不好笑  译者注
-        </a>
-      </p>
+          1. 函数的定义和调用1.1 函数的定义方式\1. 函数声明方式 function 关键字 (命名函数) \2. 函数表达式 (匿名函数) \3. new Function()  l Function 里面参数都必须是字符串格式 l 第三种方式执行效率低，也不方便书写，因此较少使用 l 所有函数都是 Function 的实例(对象) l 函数也属于对象  1.2 函数的调用方式\1. 普通函数 \
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2014-09-22 00:00" pubdate>
-              2014-09-22
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
-              <a href="/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
-            
+  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" class="category-chain-item">JS高级</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
+        
         
       </div>
     </article>
@@ -387,35 +469,49 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2014/01/29/hello-2015/" target="_self">
-          Welcome to Hux Blog
+        <a href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day05/ES6/" target="_self">
+          Day05 ES6
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2014/01/29/hello-2015/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/JS%E9%AB%98%E7%BA%A7/day05/ES6/" target="_self">
+        <div>
           
-          “Yeah It’s on. ”  前言Hux 的 Blog 就这么开通了。 跳过废话，直接看技术实现  2015 年，Hux 总算有个地方可以好好写点东西了。 作为一个程序员， Blog 这种轮子要是挂在大众博客程序上就太没意思了。一是觉得大部分 Blog 服务都太丑，二是觉得不能随便定制不好玩。之前因为太懒没有折腾，结果就一直连个写 Blog 的地儿都没有。 在玩了一段时间知乎之后，答题的快
-        </a>
-      </p>
+          ES6 简介ES 的全称是 ECMAScript , 它是由 ECMA 国际标准化组织,制定的一项脚本语言的标准化规范。  ES6 实际上是一个泛指，泛指 ES2015 及后续的版本。 为什么使用 ES6 ? 每一次标准的诞生都意味着语言的完善，功能的加强。JavaScript 语言本身也有一些令人不满意的地方。 l 变量提升特性增加了程序运行时的不可预测性 l 语法过于松散，实现相同的功能，不同
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2014-01-29 12:00" pubdate>
-              2014-01-29
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
-            
+  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" class="category-chain-item">JS高级</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
+        
         
       </div>
     </article>
@@ -427,43 +523,223 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2013/05/25/js-module-loader/" target="_self">
-          Example Post with Code Highlight
+        <a href="/2022/05/05/WebAPIs/day05/" target="_self">
+          Day05
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2013/05/25/js-module-loader/" target="_self">
+      <a class="index-excerpt" href="/2022/05/05/WebAPIs/day05/" target="_self">
+        <div>
           
-          Foreword Here comes Module!  随着网站逐渐变成「互联网应用程序」，嵌入网页的 JavaScript 代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试……我们不得不使用软件工程的方法，来管理网页的业务逻辑。 于是，JavaScript 的模块化成为迫切需求。在 ES6 Module 来临之前，JavaScript 社区提供了强大支
-        </a>
-      </p>
+          滚动事件和加载事件滚动事件l 当页面进行滚动时触发的事件 l 为什么要学？ n 很多网页需要检测用户把页面滚动到某个区域后做一些处理， 比如固定导航栏，比如返回顶部 l 事件名：scroll l 监听整个页面滚动： n 给 window 或 document 添加 scroll 事件  加载事件loadl 加载外部资源（如图片、外联 CSS 和 JavaScript 等）加载完毕时触发的事件 l
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2013-05-25 00:00" pubdate>
-              2013-05-25
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
+  <a href="/categories/WebAPIs/" class="category-chain-item">WebAPIs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/05/05/WebAPIs/day06/" target="_self">
+          Day06
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/05/05/WebAPIs/day06/" target="_self">
+        <div>
+          
+          Window 对象BOM(浏览器对象模型)l BOM(Browser Object Model ) 是浏览器对象模型 l window 是浏览器内置中的全局对象，我们所学习的所有 Web APIs 的知识内容都是基于 window 对象实现的 l window 对象下包含了 navigator、location、document、history、screen 5 个属性，即所谓的 BOM （浏览器
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WebAPIs/" class="category-chain-item">WebAPIs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/05/05/WebAPIs/day04/" target="_self">
+          Day04
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/05/05/WebAPIs/day04/" target="_self">
+        <div>
+          
+          事件对象获取事件对象l 事件对象是什么 n 也是个对象，这个对象里有事件触发时的相关信息 n 例如：鼠标点击事件中，事件对象就存了鼠标点在哪个位置等信息 l 如何获取 n 在事件绑定的回调函数的第一个参数就是事件对象 n 一般命名为 event、ev、e 事件对象常用属性 e.target 和 this 的区别 l this 是事件绑定的元素（绑定这个事件处理函数的元素） 。 l e.target
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WebAPIs/" class="category-chain-item">WebAPIs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/05/05/WebAPIs/day07/" target="_self">
+          Day07
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/05/05/WebAPIs/day07/" target="_self">
+        <div>
+          
+          正则表达式介绍什么是正则表达式l 正则表达式（Regular Expression）是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象 l 通常用来查找、替换那些符合正则表达式的文本，许多语言都支持正则表达式。 l 请在下图中找出【戴帽子和眼镜的男人】  l 戴帽子、戴眼镜、男人都是描述信息，通过这些信息能够在人群中查找到确定的某个人，那么这些用于查找的描述信息编
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-05-05 10:43" pubdate>
+              2022-05-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WebAPIs/" class="category-chain-item">WebAPIs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
         
       </div>
     </article>
   </div>
 
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 
@@ -494,32 +770,34 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -538,35 +816,18 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-
-
-
-
 
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-        typing(title);
+        typing(text);
       
     })(window, document);
   </script>
@@ -576,18 +837,28 @@
 
 
 
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
